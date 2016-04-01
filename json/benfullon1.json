@@ -1,0 +1,52 @@
+{
+    "version": "0.3.0",
+    "name": "benfullon1",
+    "faction": "rebel",
+    "points": 99,
+    "pilots": [
+        {
+            "name": "dashrendar",
+            "ship": "yt2400freighter",
+            "points": 58,
+            "upgrades": {
+                "ept": [
+                    "pushthelimit"
+                ],
+                "cannon": [
+                    "heavylasercannon"
+                ],
+                "crew": [
+                    "kananjarrus"
+                ],
+                "title": [
+                    "outrider"
+                ],
+                "mod": [
+                    "engineupgrade"
+                ]
+            }
+        },
+        {
+            "name": "lothalrebel",
+            "ship": "vcx100",
+            "points": 41,
+            "upgrades": {
+                "system": [
+                    "firecontrolsystem"
+                ],
+                "crew": [
+                    "herasyndulla",
+                    "ezrabridger"
+                ]
+            }
+        }
+    ],
+    "vendor": {
+        "voidstate": {
+            "squadron_id": 453887,
+            "link": "http://xwing-builder.co.uk/view/453887/big-ships",
+            "builder": "Voidstate's Unofficial X-Wing Squadron Builder",
+            "builder_link": "http://xwing-builder.co.uk/build"
+        }
+    }
+}

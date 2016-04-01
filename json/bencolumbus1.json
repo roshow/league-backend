@@ -1,0 +1,52 @@
+{
+    "version": "0.3.0",
+    "name": "bencolumbus1",
+    "faction": "rebel",
+    "points": 100,
+    "pilots": [
+        {
+            "name": "chewbacca",
+            "ship": "yt1300",
+            "points": 48,
+            "upgrades": {
+                "ept": [
+                    "veteraninstincts"
+                ],
+                "crew": [
+                    "mercenarycopilot",
+                    "hansolo"
+                ],
+                "title": [
+                    "millenniumfalcon"
+                ]
+            }
+        },
+        {
+            "name": "dashrendar",
+            "ship": "yt2400freighter",
+            "points": 52,
+            "upgrades": {
+                "ept": [
+                    "pushthelimit"
+                ],
+                "cannon": [
+                    "heavylasercannon"
+                ],
+                "crew": [
+                    "niennunb"
+                ],
+                "title": [
+                    "outrider"
+                ]
+            }
+        }
+    ],
+    "vendor": {
+        "voidstate": {
+            "squadron_id": 411912,
+            "link": "http://xwing-builder.co.uk/view/411912/corellians",
+            "builder": "Voidstate's Unofficial X-Wing Squadron Builder",
+            "builder_link": "http://xwing-builder.co.uk/build"
+        }
+    }
+}

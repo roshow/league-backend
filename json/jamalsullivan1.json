@@ -1,0 +1,70 @@
+{
+    "version": "0.3.0",
+    "name": "jamalsullivan1",
+    "faction": "scum",
+    "points": 100,
+    "pilots": [
+        {
+            "name": "guri",
+            "ship": "starviper",
+            "points": 39,
+            "upgrades": {
+                "ept": [
+                    "pushthelimit"
+                ],
+                "title": [
+                    "virago"
+                ],
+                "mod": [
+                    "autothrusters"
+                ]
+            }
+        },
+        {
+            "name": "cartelspacer",
+            "ship": "m3ainterceptor",
+            "points": 24,
+            "upgrades": {
+                "title": [
+                    "heavyscykinterceptor"
+                ],
+                "mod": [
+                    "engineupgrade"
+                ],
+                "cannon": [
+                    "manglercannon"
+                ]
+            }
+        },
+        {
+            "name": "4lom",
+            "ship": "g1astarfighter",
+            "points": 37,
+            "upgrades": {
+                "ept": [
+                    "pushthelimit"
+                ],
+                "crew": [
+                    "k4securitydroid"
+                ],
+                "system": [
+                    "advancedsensors"
+                ],
+                "title": [
+                    "misthunter"
+                ],
+                "cannon": [
+                    "tractorbeam"
+                ]
+            }
+        }
+    ],
+    "vendor": {
+        "voidstate": {
+            "squadron_id": 455630,
+            "link": "http://xwing-builder.co.uk/view/455630/nimby",
+            "builder": "Voidstate's Unofficial X-Wing Squadron Builder",
+            "builder_link": "http://xwing-builder.co.uk/build"
+        }
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "version": "0.3.0",
+    "name": "calneuvost1",
+    "faction": "imperial",
+    "points": 99,
+    "pilots": [
+        {
+            "name": "soontirfel",
+            "ship": "tieinterceptor",
+            "points": 35,
+            "upgrades": {
+                "title": [
+                    "royalguardtie"
+                ],
+                "ept": [
+                    "pushthelimit"
+                ],
+                "mod": [
+                    "autothrusters",
+                    "stealthdevice"
+                ]
+            }
+        },
+        {
+            "name": "rearadmiralchiraneau",
+            "ship": "vt49decimator",
+            "points": 64,
+            "upgrades": {
+                "ept": [
+                    "predator"
+                ],
+                "crew": [
+                    "darthvader",
+                    "emperorpalpatine"
+                ],
+                "mod": [
+                    "engineupgrade"
+                ]
+            }
+        }
+    ],
+    "vendor": {
+        "voidstate": {
+            "squadron_id": 461191,
+            "link": "http://xwing-builder.co.uk/view/461191/calneuvost1",
+            "builder": "Voidstate's Unofficial X-Wing Squadron Builder",
+            "builder_link": "http://xwing-builder.co.uk/build"
+        }
+    }
+}

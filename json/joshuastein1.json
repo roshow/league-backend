@@ -1,0 +1,69 @@
+{
+    "version": "0.3.0",
+    "name": "joshuastein1",
+    "faction": "imperial",
+    "points": 100,
+    "pilots": [
+        {
+            "name": "omegaleader",
+            "ship": "tiefofighter",
+            "points": 26,
+            "upgrades": {
+                "tech": [
+                    "commrelay"
+                ],
+                "ept": [
+                    "juke"
+                ]
+            }
+        },
+        {
+            "name": "redline",
+            "ship": "tiepunisher",
+            "points": 38,
+            "upgrades": {
+                "system": [
+                    "firecontrolsystem"
+                ],
+                "torpedo": [
+                    "extramunitions",
+                    "plasmatorpedoes"
+                ],
+                "missile": [
+                    "clustermissiles"
+                ],
+                "mod": [
+                    "guidancechips"
+                ]
+            }
+        },
+        {
+            "name": "omegasquadronpilot",
+            "ship": "tiefofighter",
+            "points": 18,
+            "upgrades": {
+                "ept": [
+                    "crackshot"
+                ]
+            }
+        },
+        {
+            "name": "omegasquadronpilot",
+            "ship": "tiefofighter",
+            "points": 18,
+            "upgrades": {
+                "ept": [
+                    "crackshot"
+                ]
+            }
+        }
+    ],
+    "vendor": {
+        "voidstate": {
+            "squadron_id": 452128,
+            "link": "http://xwing-builder.co.uk/view/452128/crack-rock",
+            "builder": "Voidstate's Unofficial X-Wing Squadron Builder",
+            "builder_link": "http://xwing-builder.co.uk/build"
+        }
+    }
+}
