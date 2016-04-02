@@ -47,11 +47,9 @@ function validateAndSaveList(list) {
 
 }
 
-
 function uploadLFromFiles (lists) {
 
-	var mongoDb = `mongodb://cornholio:buttholesurfers@ds011890.mlab.com:11890/nycxwing`;
-	leagueDb.connect(mongoDb).then(function () {
+	leagueDb.connect().then(function () {
 		
 		let promises = [];
 		for (let i = lists.length; i--;) {
