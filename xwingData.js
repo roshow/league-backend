@@ -1,7 +1,10 @@
 /*jshint esnext: true */
 const pilots_nonunique = [
 	'binayrepirate',
-	'omegasquadronpilot'
+	'omegasquadronpilot',
+	'omicrongrouppilot',
+	'goldsquadronpilot',
+	'banditsquadronpilot'
 ];
 
 export default { pilots_nonunique };

@@ -6,10 +6,10 @@ import { normalizeAndValidateList } from './leagueLogic';
 import leagueDb from './db';
 
 function validateAndSaveList(list) {
-	let ListModel = mongoose.model('List', schemas.list);
 	let PlayerModel = mongoose.model('Player', schemas.player);
 	let player = new PlayerModel();
 
+	list.name = list.name.toLowerCase();
 	player.name = list.name.slice(0,list.name.length - 1);
 
 	return leagueDb.getOne('Player', { name: player.name }).then(function (savedplayer) {

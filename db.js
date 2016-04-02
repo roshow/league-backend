@@ -22,7 +22,6 @@ function getOne (modelName, query) {
 function upsertOne(modelName, query, newModel) {
 	return new Promise(function (resolve, reject) {
 		mongoose.model(modelName).findOneAndUpdate(query, newModel, { upsert: true }, function (err) {
-			console.log(modelName, arguments);
 			if (err) {
 				reject(err);
 			}
