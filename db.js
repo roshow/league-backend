@@ -22,6 +22,7 @@ function getOne (modelName, query) {
 function upsertOne(modelName, query, newModel) {
 	return new Promise(function (resolve, reject) {
 		mongoose.model(modelName).findOneAndUpdate(query, newModel, { upsert: true }, function (err) {
+			console.log(modelName, arguments);
 			if (err) {
 				reject(err);
 			}
@@ -48,5 +49,9 @@ function disconnect () {
 	mongoose.disconnect();
 }
 
+function connectDoSomethingThenDisconnect (dbInfo, func) {
+	connect(dbInfo).then(func).then(disconnect);
+}
 
-export default { connect, disconnect, getOne, upsertOne };
+
+export default { connect, disconnect, getOne, upsertOne, connectDoSomethingThenDisconnect };
