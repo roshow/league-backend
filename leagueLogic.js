@@ -1,11 +1,15 @@
 /*jshint esnext: true */
 import crypto from 'crypto';
+import xwingData from './xwingData';
+
 let checksum = ( string ) => crypto.createHash('sha1').update(string, 'utf8').digest('hex');
 
 const leaguerules = {
-	pilotMax: 30,
+	pilotMax: 3,
 	listMax: 2
 };
+
+let pilots_nonunique = xwingData.pilots_nonunique;
 
 function normalizeAndValidateList (newList, player) {
 
@@ -49,11 +53,10 @@ function normalizeAndValidateList (newList, player) {
 
 		let name = newPilot.name;
 		let usedPilots = player.pilots_used;
-
 		if (!usedPilots[name]) {
 			usedPilots[name] = 1;
 		}
-		else if (usedPilots[name] < leaguerules.pilotMax) {
+		else if (pilots_nonunique.indexOf(name) !== -1 || usedPilots[name] < leaguerules.pilotMax) {
 			usedPilots[name] = usedPilots[name] + 1;
 		}
 		else {
@@ -69,13 +72,10 @@ function normalizeAndValidateList (newList, player) {
 		return  normalizedData;
 	}	
 
-	let timesUsed = listKeys.reduce( function (count, key) {
-		let listId = player.lists[key];
-		if (listId === newList.list_id) {
-			return count + 1;
-		}
-		return count;
-	}, 0);
+	let timesUsed = 0;
+	for (let i = listKeys.length; i--;) {
+		timesUsed = (player.lists[listKeys[i]] === newList.list_id) ? (timesUsed + 1) : 0;
+	}
 
 	if (timesUsed >= 2) {
 		normalizedData.error = true;
