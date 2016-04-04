@@ -9,6 +9,23 @@ const leaguerules = {
 	listMax: 2
 };
 
+function calculateLeaguePoints (scores, wasPlayed) {
+	
+	let [{ destroyed: destroyed1 }, { destroyed: destroyed2 }] = scores;
+	
+	if (!wasPlayed && destroyed1 === 0 && destroyed2 === 0){
+		return [0, 0];
+	}
+
+	let diff = destroyed1 - destroyed2;
+	
+	let absdiff = Math.abs(diff);
+	let points = (absdiff >= 12) ? [4, 1] : (absdiff > 0) ? [3, 2] : [2, 2];
+
+	return (diff < 0) ? points.reverse() : points;
+
+}
+
 let pilots_nonunique = xwingData.pilots_nonunique;
 
 function normalizeAndValidateList (newList, player) {
@@ -22,9 +39,9 @@ function normalizeAndValidateList (newList, player) {
 	let listKeys = Object.keys(player.lists);
 
 	if ( listKeys.indexOf(newList.name) !== -1 ) {
-		normalizedData.error = true;
-		normalizedData.message = 'list has already been submitted';
-		return normalizedData;
+		// normalizedData.error = true;
+		// normalizedData.message = 'list has already been submitted';
+		// return normalizedData;
 	}
 
 	newList.list_id = '';
@@ -88,4 +105,4 @@ function normalizeAndValidateList (newList, player) {
 
 }
 
-export default { normalizeAndValidateList };
+export default { normalizeAndValidateList, calculateLeaguePoints };

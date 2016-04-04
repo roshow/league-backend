@@ -1,0 +1,87 @@
+[
+	{
+		"week": 1,
+		"game": 1,
+		"division": "argent",
+		"players": [
+			{
+				"name": "seanduffy",
+				"destroyed":0,
+				"lp": 0
+			},
+			{
+				"name": "matthewkreiner",
+				"destroyed":0,
+				"lp": 0
+			}
+		]
+	},
+	{
+		"week": 1,
+		"game": 2,
+		"division": "argent",
+		"players": [
+			{
+				"name": "calneuvost",
+				"destroyed":0,
+				"lp": 0
+			},
+			{
+				"name": "johndimaggio",
+				"destroyed":0,
+				"lp": 0
+			}
+		]
+	},
+	{
+		"week": 1,
+		"game": 3,
+		"division": "argent",
+		"players": [
+			{
+				"name": "rolandogarcia",
+				"destroyed":0,
+				"lp": 0
+			},
+			{
+				"name": "davecaruana",
+				"destroyed":0,
+				"lp": 0
+			}
+		]
+	},
+	{
+		"week": 1,
+		"game": 4,
+		"division": "argent",
+		"players": [
+			{
+				"name": "benfullon",
+				"destroyed":0,
+				"lp": 0
+			},
+			{
+				"name": "michaelkaufman",
+				"destroyed":0,
+				"lp": 0
+			}
+		]
+	},
+	{
+		"week": 1,
+		"game": 5,
+		"division": "argent",
+		"players": [
+			{
+				"name": "marekmarcinkiewicz",
+				"destroyed":0,
+				"lp": 0
+			},
+			{
+				"name": "damienjhagroo",
+				"destroyed":0,
+				"lp": 0
+			}
+		]
+	}
+]

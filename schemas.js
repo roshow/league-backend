@@ -1,6 +1,31 @@
 /*jshint esnext: true */
 import { Schema } from 'mongoose';
 
+let match_player = Schema({
+	name: String,
+	list_id: String,
+	destroyed: {
+		type: Number,
+		default: 0
+	},
+	lp: {
+		type: Number,
+		default: 0
+	}
+})
+
+let match = Schema({
+	week: Number,
+	game: Number,
+	division: String,
+	match_id: String,
+	played: {
+		type: Boolean,
+		Default: false
+	},
+	players: [match_player]
+});
+
 let pilot = Schema({
 	name: String,
 	ship: String,
@@ -35,4 +60,4 @@ let player = Schema({
 	}
 });
 
-export default { player, list, pilot };
+export default { player, list, pilot, match };

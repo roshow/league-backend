@@ -1,0 +1,47 @@
+{
+    "version": "0.3.0",
+    "name": "chrisvendetti1",
+    "faction": "imperial",
+    "points": 100,
+    "description": "0-1 League Play",
+    "pilots": [
+        {
+            "name": "captainoicunn",
+            "ship": "vt49decimator",
+            "points": 55,
+            "upgrades": {
+                "ept": [
+                    "adaptability"
+                ],
+                "crew": [
+                    "emperorpalpatine",
+                    "weaponsengineer"
+                ],
+                "title": [
+                    "dauntless"
+                ]
+            }
+        },
+        {
+            "name": "colonelvessery",
+            "ship": "tiedefender",
+            "points": 45,
+            "upgrades": {
+                "cannon": [
+                    "heavylasercannon"
+                ],
+                "ept": [
+                    "ruthlessness"
+                ]
+            }
+        }
+    ],
+    "vendor": {
+        "voidstate": {
+            "squadron_id": 463950,
+            "link": "http://xwing-builder.co.uk/view/463950/nyc-x-wing-league-week-1",
+            "builder": "Voidstate's Unofficial X-Wing Squadron Builder",
+            "builder_link": "http://xwing-builder.co.uk/build"
+        }
+    }
+}

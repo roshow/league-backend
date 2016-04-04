@@ -1,0 +1,64 @@
+{
+    "version": "0.3.0",
+    "name": "chrisvendetti2",
+    "faction": "imperial",
+    "points": 100,
+    "description": "0-2 League Play",
+    "pilots": [
+        {
+            "name": "omegaleader",
+            "ship": "tiefofighter",
+            "points": 26,
+            "upgrades": {
+                "tech": [
+                    "commrelay"
+                ],
+                "ept": [
+                    "juke"
+                ]
+            }
+        },
+        {
+            "name": "omicrongrouppilot",
+            "ship": "lambdaclassshuttle",
+            "points": 30,
+            "upgrades": {
+                "cannon": [
+                    "tractorbeam"
+                ],
+                "crew": [
+                    "emperorpalpatine"
+                ]
+            }
+        },
+        {
+            "name": "wampa",
+            "ship": "tiefighter",
+            "points": 14
+        },
+        {
+            "name": "theinquisitor",
+            "ship": "tieadvprototype",
+            "points": 30,
+            "upgrades": {
+                "ept": [
+                    "juke"
+                ],
+                "title": [
+                    "tiev1"
+                ],
+                "mod": [
+                    "autothrusters"
+                ]
+            }
+        }
+    ],
+    "vendor": {
+        "voidstate": {
+            "squadron_id": 433682,
+            "link": "http://xwing-builder.co.uk/view/433682/nyc-x-wing-league-week-2",
+            "builder": "Voidstate's Unofficial X-Wing Squadron Builder",
+            "builder_link": "http://xwing-builder.co.uk/build"
+        }
+    }
+}

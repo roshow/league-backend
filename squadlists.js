@@ -6,8 +6,8 @@ import { normalizeAndValidateList } from './leagueLogic';
 import leagueDb from './db';
 
 function validateAndSaveList(list) {
-	let PlayerModel = mongoose.model('Player', schemas.player);
-	let player = new PlayerModel();
+	let Player = mongoose.model('Player', schemas.player);
+	let player = new Player();
 
 	list.name = list.name.toLowerCase();
 	player.name = list.name.slice(0,list.name.length - 1);
@@ -24,6 +24,7 @@ function validateAndSaveList(list) {
 		if (!normalData.error) {
 
 			player.lists[list.name] = list.list_id;
+			list.name = list.list_id;
 
 			let playerPromise = leagueDb.upsertOne('Player', { _id: player._id}, player).then(function () {
 				console.log(`${player.name} ${modelDBMethod}d?`);

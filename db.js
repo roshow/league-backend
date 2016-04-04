@@ -1,14 +1,7 @@
 /*jshint esnext: true */
 import mongoose from 'mongoose';
 import schemas from './schemas';
-
-let List = mongoose.model('List', schemas.list);
-let Player = mongoose.model('Player', schemas.player);
-
-let mongoInstances = {
-	production: `@ds011890.mlab.com:11890/nycxwing`,
-	staging: `@ds011830.mlab.com:11830/xwingstaging`
-};
+import dbModels from './dbModels';
 
 function getOne (modelName, query) {
 	return new Promise(function (resolve, reject) {
@@ -35,6 +28,11 @@ function upsertOne(modelName, query, newModel) {
 		});
 	});
 }
+
+let mongoInstances = {
+	production: `@ds011890.mlab.com:11890/nycxwing`,
+	staging: `@ds011830.mlab.com:11830/xwingstaging`
+};
 
 function connect () {
 	let dbInfo = `mongodb://cornholio:buttholesurfers${mongoInstances.staging}`;
