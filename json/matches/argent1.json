@@ -5,14 +5,12 @@
 		"division": "argent",
 		"players": [
 			{
-				"name": "seanduffy",
-				"destroyed": 0,
-				"lp": 0
+				"name": "bencolumbus",
+				"destroyed": 100
 			},
 			{
-				"name": "matthewkreiner",
-				"destroyed":0,
-				"lp": 0
+				"name": "joshuastein",
+				"destroyed": 24
 			}
 		]
 	},
@@ -22,14 +20,12 @@
 		"division": "argent",
 		"players": [
 			{
-				"name": "calneuvost",
-				"destroyed":0,
-				"lp": 0
+				"name": "jamalsullivan",
+				"destroyed": 100
 			},
 			{
-				"name": "johndimaggio",
-				"destroyed":0,
-				"lp": 0
+				"name": "kentcamargo",
+				"destroyed": 24
 			}
 		]
 	},
@@ -39,14 +35,12 @@
 		"division": "argent",
 		"players": [
 			{
-				"name": "rolandogarcia",
-				"destroyed":0,
-				"lp": 0
+				"name": "brunoroncada",
+				"destroyed":100
 			},
 			{
-				"name": "davecaruana",
-				"destroyed":0,
-				"lp": 0
+				"name": "chadherrada",
+				"destroyed":67
 			}
 		]
 	},
@@ -56,14 +50,12 @@
 		"division": "argent",
 		"players": [
 			{
-				"name": "benfullon",
-				"destroyed":0,
-				"lp": 0
+				"name": "stephenwooten",
+				"destroyed": 100
 			},
 			{
-				"name": "michaelkaufman",
-				"destroyed":0,
-				"lp": 0
+				"name": "joshmankoff",
+				"destroyed": 40
 			}
 		]
 	},
@@ -73,14 +65,12 @@
 		"division": "argent",
 		"players": [
 			{
-				"name": "marekmarcinkiewicz",
-				"destroyed":0,
-				"lp": 0
+				"name": "joaquinquintana",
+				"destroyed": 100
 			},
 			{
-				"name": "damienjhagroo",
-				"destroyed":0,
-				"lp": 0
+				"name": "chrisvendetti",
+				"destroyed": 0
 			}
 		]
 	}
