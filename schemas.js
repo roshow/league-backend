@@ -11,8 +11,12 @@ let match_player = Schema({
 	lp: {
 		type: Number,
 		default: 0
+	},
+	mov: {
+		type: Number,
+		default: 0
 	}
-})
+});
 
 let match = Schema({
 	week: Number,
@@ -49,10 +53,14 @@ let list = Schema({
 
 let player = Schema({
 	name: String,
-	time: Number,
+	division: String,
 	lists: {
 		type: Schema.Types.Mixed,
-		default: {}
+		default: []
+	},
+	matches: {
+		type: Schema.Types.Mixed,
+		default: []
 	},
 	pilots_used: {
 		type: Schema.Types.Mixed,

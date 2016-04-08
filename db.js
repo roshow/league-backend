@@ -6,12 +6,17 @@ import dbModels from './dbModels';
 function getOne (modelName, query) {
 	return new Promise(function (resolve, reject) {
 		mongoose.model(modelName).findOne(query, function (err, doc) {
-			if (err) {
-				reject(err);
-			}
-			else {
-				resolve(doc);
-			}
+			if (err) { reject(err); }
+			else { resolve(doc); }
+		});
+	});
+}
+
+function find (modelName, query) {
+	return new Promise(function (resolve, reject) {
+		mongoose.model(modelName).find(query, function (err, docs) {
+			if (err) { reject(err); }
+			else { resolve(docs); }
 		});
 	});
 }
@@ -19,12 +24,8 @@ function getOne (modelName, query) {
 function upsertOne(modelName, query, newModel) {
 	return new Promise(function (resolve, reject) {
 		mongoose.model(modelName).findOneAndUpdate(query, newModel, { upsert: true }, function (err) {
-			if (err) {
-				reject(err);
-			}
-			else {
-				resolve();
-			}
+			if (err) { reject(err); }
+			else { resolve(); }
 		});
 	});
 }
@@ -56,4 +57,4 @@ function connectDoSomethingThenDisconnect (dbInfo, func) {
 }
 
 
-export default { connect, disconnect, getOne, upsertOne, connectDoSomethingThenDisconnect };
+export default { connect, disconnect, getOne, upsertOne, connectDoSomethingThenDisconnect, find };

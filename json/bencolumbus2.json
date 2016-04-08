@@ -1,0 +1,63 @@
+{
+    "version": "0.3.0",
+    "name": "bencolumbus2",
+    "faction": "rebel",
+    "points": 100,
+    "pilots": [
+        {
+            "name": "dashrendar",
+            "ship": "yt2400freighter",
+            "points": 58,
+            "upgrades": {
+                "ept": [
+                    "pushthelimit"
+                ],
+                "cannon": [
+                    "heavylasercannon"
+                ],
+                "missile": [
+                    "protonrockets"
+                ],
+                "crew": [
+                    "niennunb"
+                ],
+                "title": [
+                    "outrider"
+                ],
+                "mod": [
+                    "countermeasures"
+                ]
+            }
+        },
+        {
+            "name": "poedameron",
+            "ship": "t70xwing",
+            "points": 42,
+            "upgrades": {
+                "amd": [
+                    "r2d2"
+                ],
+                "torpedo": [
+                    "protontorpedoes"
+                ],
+                "tech": [
+                    "weaponsguidance"
+                ],
+                "ept": [
+                    "veteraninstincts"
+                ],
+                "mod": [
+                    "integratedastromech"
+                ]
+            }
+        }
+    ],
+    "vendor": {
+        "voidstate": {
+            "squadron_id": 398338,
+            "link": "http://xwing-builder.co.uk/view/398338/v-is-for-nice-try-vendetti",
+            "builder": "Voidstate's Unofficial X-Wing Squadron Builder",
+            "builder_link": "http://xwing-builder.co.uk/build"
+        }
+    }
+}

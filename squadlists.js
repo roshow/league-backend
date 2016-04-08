@@ -1,42 +1,53 @@
 /*jshint esnext: true */
 import { readFileSync } from 'fs';
-import mongoose from 'mongoose';
-import schemas from './schemas';
 import { normalizeAndValidateList } from './leagueLogic';
 import leagueDb from './db';
+import { Player } from './dbModels';
+import crypto from 'crypto';
 
-function validateAndSaveList(list) {
-	let Player = mongoose.model('Player', schemas.player);
+function makeListId (list) {
+		let listIdString = '';
+		for (let pilot of list.pilots) {
+			listIdString += pilot.name;
+			listIdString += Object.keys(pilot.upgrades || {}).reduce(
+				(upgradenames, key) => upgradenames.concat(pilot.upgrades[key]), []).sort().join('');
+		}
+		return crypto.createHash('sha1').update(listIdString, 'utf8').digest('hex');
+}
+
+function _validateAndSaveList(list) {
 	let player = new Player();
+	let listName = list.name.toLowerCase();
 
-	list.name = list.name.toLowerCase();
-	player.name = list.name.slice(0,list.name.length - 1);
+	let listRegexMatch = /([a-z]+)([0-9]+)/.exec(listName);
+	let weekIndex = parseInt(listRegexMatch[2], 10) - 1;
+	list.name = listRegexMatch[0];
+	player.name = listRegexMatch[1];
 
 	return leagueDb.getOne('Player', { name: player.name }).then(function (savedplayer) {
 
-		let modelDBMethod = `save`;
 		if (savedplayer) {
-			modelDBMethod = `update`;
 			player = savedplayer;
 		}
 
-		let normalData = normalizeAndValidateList(list, player);
+		let normalData = normalizeAndValidateList(list, player, weekIndex);
 		if (!normalData.error) {
 
-			player.lists[list.name] = list.list_id;
+			player.lists[weekIndex] = list.list_id;
 			list.name = list.list_id;
 
 			let playerPromise = leagueDb.upsertOne('Player', { _id: player._id}, player).then(function () {
-				console.log(`${player.name} ${modelDBMethod}d?`);
+				console.log(`${player.name} upserted?`);
 				return;
 			});
 
 			let listPromise = leagueDb.upsertOne('List', { list_id: list.list_id}, list).then(function () {
-					console.log(`list saved?`);
+					console.log(`list upserted?`);
 					return;
 				});
 
 			return Promise.all([playerPromise, listPromise]);
+			// return listPromise;
 		
 		}
 		else {
@@ -44,26 +55,37 @@ function validateAndSaveList(list) {
 			console.log(normalData.message);
 			return normalData;
 		}
-	});
+	}, console.log);
 
 }
 
-function uploadLFromFiles (lists) {
+function uploadFromFiles (lists) {
+	let promises = [];
+	for (let i = lists.length; i--;) {
+		let newList = JSON.parse(readFileSync(lists[i]));
+		promises.push(_validateAndSaveList(newList));
+	}
 
-	leagueDb.connect().then(function () {
+	return Promise.all(promises);
+}
+
+// function uploadFromFiles (lists) {
+
+// 	leagueDb.connect().then(function () {
 		
-		let promises = [];
-		for (let i = lists.length; i--;) {
-			let newList = JSON.parse(readFileSync(lists[i]));
-			promises.push(validateAndSaveList(newList));
-		}
+// 		let promises = [];
+// 		for (let i = lists.length; i--;) {
+// 			let newList = JSON.parse(readFileSync(lists[i]));
+// 			promises.push(_validateAndSaveList(newList));
+// 		}
 
-		Promise.all(promises).then(leagueDb.disconnect);
+// 		Promise.all(promises).then(leagueDb.disconnect);
 
-	});
-}
+// 	}, console.log);
+// }
 
-export default { uploadLFromFiles };
+
+export default { uploadFromFiles };
 
 
 

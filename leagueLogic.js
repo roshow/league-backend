@@ -9,26 +9,33 @@ const leaguerules = {
 	listMax: 2
 };
 
-function calculateLeaguePoints (scores, wasPlayed) {
+function calculateLeaguePoints (players, wasPlayed) {
 	
-	let [{ destroyed: destroyed1 }, { destroyed: destroyed2 }] = scores;
+	let [{ destroyed: destroyed1 }, { destroyed: destroyed2 }] = players;
 	
 	if (!wasPlayed && destroyed1 === 0 && destroyed2 === 0){
 		return [0, 0];
 	}
 
 	let diff = destroyed1 - destroyed2;
-	
 	let absdiff = Math.abs(diff);
-	let points = (absdiff >= 12) ? [4, 1] : (absdiff > 0) ? [3, 2] : [2, 2];
 
-	return (diff < 0) ? points.reverse() : points;
+	let points = (absdiff >= 12) ? [4, 1] : (absdiff > 0) ? [3, 2] : [2, 2];
+	let scores = [{
+		lp: points[0],
+		mov: (100 + absdiff)
+	}, {
+		lp: points[1],
+		mov: (100 - absdiff)
+	}];
+
+	return (diff < 0) ? scores.reverse() : scores;
 
 }
 
 let pilots_nonunique = xwingData.pilots_nonunique;
 
-function normalizeAndValidateList (newList, player) {
+function normalizeAndValidateList (newList, player, weekIndex) {
 
 	let normalizedData = {
 		list: {},
@@ -36,12 +43,11 @@ function normalizeAndValidateList (newList, player) {
 		message: ''
 	};
 
-	let listKeys = Object.keys(player.lists);
-
-	if ( listKeys.indexOf(newList.name) !== -1 ) {
-		// normalizedData.error = true;
-		// normalizedData.message = 'list has already been submitted';
-		// return normalizedData;
+	// let listKeys = Object.keys(player.lists);
+	if ( player.lists[weekIndex] ) {
+		normalizedData.error = true;
+		normalizedData.message = 'list has already been submitted';
+		return normalizedData;
 	}
 
 	newList.list_id = '';
@@ -90,8 +96,8 @@ function normalizeAndValidateList (newList, player) {
 	}	
 
 	let timesUsed = 0;
-	for (let i = listKeys.length; i--;) {
-		timesUsed = (player.lists[listKeys[i]] === newList.list_id) ? (timesUsed + 1) : 0;
+	for (let i = player.lists.length; i--;) {
+		timesUsed = (player.lists[i] === newList.list_id) ? (timesUsed + 1) : 0;
 	}
 
 	if (timesUsed >= 2) {

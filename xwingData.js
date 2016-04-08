@@ -4,7 +4,11 @@ const pilots_nonunique = [
 	'omegasquadronpilot',
 	'omicrongrouppilot',
 	'goldsquadronpilot',
-	'banditsquadronpilot'
+	'banditsquadronpilot',
+	'contractedscout',
+	'royalguardpilot',
+	'blacksquadronpilot',
+	'talasquadronpilot'
 ];
 
 export default { pilots_nonunique };
