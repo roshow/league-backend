@@ -65,7 +65,7 @@ function uploadMatches (matches) {
  	for (let match of matches) {
  		promises.push(uploadMatch(match));
  	}
- 	return Promises.all(promises);
+ 	return Promise.all(promises);
 }
 
 function uploadMatchesFromFile(file) {
