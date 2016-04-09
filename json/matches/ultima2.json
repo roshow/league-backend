@@ -1,0 +1,82 @@
+[
+	{
+		"week": 2,
+		"game": 1,
+		"played": true,
+		"division": "ultima",
+		"players": [
+			{
+				"name": "seanduffy",
+				"destroyed": 0
+			},
+			{
+				"name": "matthewkreiner",
+				"destroyed": 100
+			}
+		]
+	},
+	{
+		"week": 2,
+		"game": 2,
+		"played": true,
+		"division": "ultima",
+		"players": [
+			{
+				"name": "calneuvost",
+				"destroyed": 76
+			},
+			{
+				"name": "johndimaggio",
+				"destroyed": 100
+			}
+		]
+	},
+	{
+		"week": 2,
+		"game": 3,
+		"played": true,
+		"division": "ultima",
+		"players": [
+			{
+				"name": "rolandogarcia",
+				"destroyed": 14
+			},
+			{
+				"name": "davecaruana",
+				"destroyed": 100
+			}
+		]
+	},
+	{
+		"week": 2,
+		"game": 4,
+		"played": true,
+		"division": "ultima",
+		"players": [
+			{
+				"name": "benfullon",
+				"destroyed": 64
+			},
+			{
+				"name": "michaelkaufman",
+				"destroyed": 79
+			}
+		]
+	},
+	{
+		"week": 2,
+		"game": 5,
+		"played": true,
+		"division": "ultima",
+		"players": [
+			{
+				"name": "marekmarcinkiewicz",
+				"destroyed": 60
+			},
+			{
+				"name": "damianjhagroo",
+				"destroyed": 42
+			}
+		]
+	}
+]

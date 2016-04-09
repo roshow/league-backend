@@ -4,7 +4,9 @@ import leagueLogic from './leagueLogic';
 import leagueDb from './db';
 import { Player } from './dbModels';
 
-let PLAYER_STR = 'Player';
+let PLAYER_STR = 'Player',
+		LIST_STR = 'List',
+		MATCH_STR = 'Match';
 
 // function setPilotScores  (player) {
 // 	leagueDb.find('List', {
@@ -13,6 +15,17 @@ let PLAYER_STR = 'Player';
 
 // 	});
 // }
+
+function getPlayerMatches(playername) {
+	return leagueDb
+		.find(MATCH_STR, {
+			"players.name": playername
+		})
+		.then(function (matches) {
+			console.log(matches);
+			return matches;
+		}, console.log);
+}
 
 function getLists(playername) {
 	return leagueDb
@@ -24,4 +37,4 @@ function getLists(playername) {
 		}, console.log);
 }
 
-export default  { getLists };
+export default  { getLists, getPlayerMatches };

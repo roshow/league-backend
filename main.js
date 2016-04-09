@@ -4,36 +4,67 @@ import squadLists from './squadLists';
 import players from './players';
 import matches from './matches';
 
+let script = process.argv[2] || `nothingToDo`;
 let args = process.argv.slice(3);
 
+function nothingToDo () {
+	return new Promise(function (resolve) {
+		console.log('do something will ya?');
+		resolve();
+	});
+}
+
+function uploadLists () {
+	return squadLists.uploadFromFiles(args || `json/rolandogarcia1.json`);
+}
+
+function uploadMatchesFile () {
+	return matches.uploadMatchesFromFile(args[0] || `json/matches/ultima1.json`);
+}
+
+function getPlayerMatches () {
+	return players.getPlayerMatches(args[0] || `rolandogarcia`).then(function (matches) {
+		for (let match of matches) {
+			console.log(match.toJSON());
+		}
+		return matches;
+	});
+}
+
+let fUNctions = { nothingToDo, uploadLists, getPlayerMatches, uploadMatchesFile };
 
 
 leagueDb.connect().then(function () {
 	var promise;
-	switch (process.argv[2]) {
 
-		case "uploadLists":
-			promise = squadLists.uploadFromFiles(args || 'json/rolandogarcia1.json');
-			break;
+	promise = fUNctions[script]();
 
-		case "getPlayerLists":
-			promise = players.getLists(args[0] || "rolandogarcia").then(function (lists) {
-				console.log(lists);
-				return lists;
-			});
-			break;
+	// switch (process.argv[2]) {
 
-		case "uploadMatches":
-			promise = matches.uploadMatchesFromFile(args[0] || 'json/matches/ultima1.json');
-			break;
+	// 	case "uploadLists":
+	// 		promise = squadLists.uploadFromFiles(args || 'json/rolandogarcia1.json');
+	// 		break;
 
-		default:
-			promise = new Promise(function (resolve) {
-				console.log('do something will ya?');
-				resolve();
-			});
-			break;
-	}
+	// 	case "getPlayerLists":
+	// 		promise = players.getLists(args[0] || "rolandogarcia").then(function (lists) {
+	// 			console.log(lists);
+	// 			return lists;
+	// 		});
+	// 		break;
+
+	// 	case "getPlayer"
+
+	// 	case "uploadMatches":
+	// 		promise = matches.uploadMatchesFromFile(args[0] || 'json/matches/ultima1.json');
+	// 		break;
+
+	// 	default:
+	// 		promise = new Promise(function (resolve) {
+	// 			console.log('do something will ya?');
+	// 			resolve();
+	// 		});
+	// 		break;
+	// }
 
 	promise.then(leagueDb.disconnect);
 
