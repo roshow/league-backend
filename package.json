@@ -4,11 +4,12 @@
   "description": "nycxwing list manager",
   "main": "squadlists.js",
   "dependencies": {
+    "babel-cli": "^6.7.5",
     "mongoose": "^4.4.10"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "main": "babel main"
   },
   "author": "roshow",
   "license": "ISC"
