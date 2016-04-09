@@ -1,7 +1,26 @@
 /*jshint esnext: true */
 import mongoose from 'mongoose';
+import constants from './constants';
 
 let Schema = mongoose.Schema;
+
+let scoredPlayerSchema = Schema({
+	name: String,
+	print_name: String,
+	division: String,
+	lp: {
+		type: Number,
+		default: 0
+	},
+	mov: {
+		type: Number,
+		default: 0
+	},
+	games_played: {
+		type: Number,
+		default: 0
+	}
+});
 
 let match_player = Schema({
 	name: String,
@@ -55,6 +74,7 @@ let list = Schema({
 
 let player = Schema({
 	name: String,
+	print_name: String,
 	division: String,
 	lists: {
 		type: Schema.Types.Mixed,
@@ -70,10 +90,11 @@ let player = Schema({
 	}
 });
 
-let schemas = { player, list, match };
+// let schemas = { player, list, match, scored_player };
 
-let List = mongoose.model('List', schemas.list);
-let Player = mongoose.model('Player', schemas.player);
-let Match = mongoose.model('Match', schemas.match);
+let List = mongoose.model('List', list);
+let Player = mongoose.model('Player', player);
+let Match = mongoose.model('Match', match);
+let ScoredPlayer = mongoose.model(constants.SCOREDPLAYER_STR, scoredPlayerSchema);
 
-export default { List, Player, Match };
+export default { List, Player, Match, ScoredPlayer };

@@ -3,6 +3,7 @@ import leagueDb from './db';
 import squadLists from './squadLists';
 import players from './players';
 import matches from './matches';
+import rankings from './getRankings';
 
 let script = process.argv[2] || `nothingToDo`;
 let args = process.argv.slice(3);
@@ -31,7 +32,11 @@ function getPlayerMatches () {
 	});
 }
 
-let fUNctions = { nothingToDo, uploadLists, getPlayerMatches, uploadMatchesFile };
+function getDivisionRankings () {
+	return rankings.getDivisionRankings(args[0] || `ultima`);
+}
+
+let fUNctions = { nothingToDo, uploadLists, getPlayerMatches, uploadMatchesFile,  getDivisionRankings };
 
 
 leagueDb.connect().then(function () {
