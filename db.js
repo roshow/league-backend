@@ -29,6 +29,15 @@ function upsertOne(modelName, query, newModel) {
 	});
 }
 
+function remove(modelName, query) {
+	return new Promise(function (resolve, reject) {
+		mongoose.model(modelName).remove(query, function (err) {
+			if (err) { reject(err); }
+			else { resolve(); }
+		});
+	});
+}
+
 let mongoInstances = {
 	production: `@ds011890.mlab.com:11890/nycxwing`,
 	staging: `@ds011830.mlab.com:11830/xwingstaging`
@@ -56,4 +65,4 @@ function connectDoSomethingThenDisconnect (dbInfo, func) {
 }
 
 
-export default { connect, disconnect, getOne, upsertOne, connectDoSomethingThenDisconnect, find };
+export default { connect, disconnect, getOne, upsertOne, connectDoSomethingThenDisconnect, find, remove };

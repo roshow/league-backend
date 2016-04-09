@@ -21,13 +21,38 @@ function _getDivisionMatches (division) {
 	});
 }
 
+function _compareRankings(a,b) {
+  if (a.lp > b.lp)
+    return -1;
+  else if (a.lp < b.lp)
+    return 1;
+  else if (a.mov > b.mov)
+    return -1;
+  else if (a.mov < b.mov)
+    return 1;
+  else 
+    return 0;
+}
+
+
 function getDivisionRankings (division) {
 	var promises = [];
 	promises.push(_getDivisionPlayers(division));
 	promises.push(_getDivisionMatches(division));
-	return Promise.all(promises).then(function ([players, matches]) {
-		console.log(players, matches);
-		return;
+	// promises.push(leagueDb.remove(SCOREDPLAYER_STR, {}));
+	return Promise.all(promises).then(function ([scoredPlayers, matches]) {
+		// console.log(scoredPlayers, matches);
+		for (let match of matches) {
+			for (let player of match.players) {
+				let scoredPlayer = scoredPlayers[player.name];
+				scoredPlayer.lp = scoredPlayer.lp + player.lp;
+				scoredPlayer.mov = scoredPlayer.mov + player.mov;
+				scoredPlayer.games_played = scoredPlayer.games_played + 1;
+			}
+		}
+		let scoredPlayersArr = Object.keys(scoredPlayers).map((k) => scoredPlayers[k]).sort(_compareRankings);
+		console.log(scoredPlayersArr.map(p => ({ name: p.name, mov: p.mov })));
+		return scoredPlayersArr;
 	}, console.log);
 }
 export default { getDivisionRankings };
