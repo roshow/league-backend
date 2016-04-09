@@ -1,7 +1,6 @@
 
 /*jshint esnext: true */
 import { readFileSync } from 'fs';
-import schemas from './schemas';
 import leagueLogic from './leagueLogic';
 import leagueDb from './db';
 import dbModels from './dbModels';

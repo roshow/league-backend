@@ -1,6 +1,5 @@
 /*jshint esnext: true */
 import mongoose from 'mongoose';
-import schemas from './schemas';
 import dbModels from './dbModels';
 
 function getOne (modelName, query) {
