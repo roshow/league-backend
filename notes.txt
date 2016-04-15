@@ -1,0 +1,9 @@
+* /rankings/:divisionName
+	* Rankings by Division
+* player/:name
+	* Player
+		* /matches [ Match Models ]
+		* /lists
+* Matches
+	* by division
+	* by week?
