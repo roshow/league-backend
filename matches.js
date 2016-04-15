@@ -1,5 +1,4 @@
 
-/*jshint esnext: true */
 import { readFileSync } from 'fs';
 import leagueLogic from './leagueLogic';
 import leagueDb from './db';

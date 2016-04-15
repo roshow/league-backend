@@ -1,4 +1,4 @@
-/*jshint esnext: true */
+
 import leagueDb from './db';
 import squadLists from './squadLists';
 import players from './players';
@@ -42,9 +42,10 @@ function runScript (script=`nothingToDo`, args=[]) {
 	}, console.log);
 }
 
-// console.log(process.argv);
-// runScript(process.argv[2], process.argv.slice(3)).then(function (res) {
-// 	console.log(`printing script results: \n`, res);
-// });
+if (process.argv[2] === 'runscript') {
+	runScript(process.argv[3], process.argv.slice(4)).then(function (res) {
+		console.log(`printing script results: \n`, res);
+	});
+}
 
 export default { runScript };

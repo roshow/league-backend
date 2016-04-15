@@ -1,4 +1,4 @@
-/*jshint esnext: true */
+
 import mongoose from 'mongoose';
 import dbModels from './dbModels';
 

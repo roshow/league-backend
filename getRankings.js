@@ -1,4 +1,4 @@
-/*jshint esnext: true */
+
 import constants from './constants';
 import leagueDb from './db';
 import dbModels from './dbModels';

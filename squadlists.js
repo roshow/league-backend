@@ -1,4 +1,4 @@
-/*jshint esnext: true */
+
 import { readFileSync } from 'fs';
 import { normalizeAndValidateList } from './leagueLogic';
 import leagueDb from './db';
