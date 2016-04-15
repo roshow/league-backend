@@ -4,7 +4,7 @@ import leagueLogic from './leagueLogic';
 import leagueDb from './db';
 import dbModels from './dbModels';
 
-let matches = JSON.parse(readFileSync('json/matches/ultima1.json'));
+// let matches = JSON.parse(readFileSync('json/matches/ultima1.json'));
 
 function validateAndScoreMatch (match) {
 	
@@ -45,7 +45,7 @@ function _addListIds ({ players, week, match_id, division }) {
 	
 }
 
-function uploadMatch (match=matches[1]) {
+function uploadMatch (match) {
 	match = validateAndScoreMatch(match);
 	return _addListIds(match).then(function () {
 		return leagueDb.upsertOne('Match', { match_id: match.match_id }, match).then(function () {

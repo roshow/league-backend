@@ -1,9 +1,19 @@
-* /rankings/:divisionName
-	* Rankings by Division
-* player/:name
+* divison/:divName
+	* rankings/
+	* players/
+	* matches/
+
+* players/ 
+	* all
+
+* players/:name
 	* Player
 		* /matches [ Match Models ]
 		* /lists
-* Matches
+
+* /matches
 	* by division
 	* by week?
+
+* lists/:listId
+	*

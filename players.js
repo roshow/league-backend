@@ -2,14 +2,11 @@
 import leagueLogic from './leagueLogic';
 import leagueDb from './db';
 import { Player } from './dbModels';
-
-let PLAYER_STR = 'Player',
-		LIST_STR = 'List',
-		MATCH_STR = 'Match';
+import constants from './constants';
 
 function getPlayerMatches(playername) {
 	return leagueDb
-		.find(MATCH_STR, {
+		.find(constants.MATCH_STR, {
 			"players.name": playername
 		})
 		.then(function (matches) {
@@ -19,7 +16,7 @@ function getPlayerMatches(playername) {
 
 function getLists(playername) {
 	return leagueDb
-		.getOne(PLAYER_STR, { name: playername })
+		.getOne(constants.PLAYER_STR, { name: playername })
 		.then(function (player) {
 			return leagueDb.find('List', {
 				list_id: { $in: player.lists } 
@@ -27,4 +24,25 @@ function getLists(playername) {
 		}, console.log);
 }
 
-export default  { getLists, getPlayerMatches };
+function upsertPlayersFromJson () {
+	let players = JSON.parse(readFileSync('json/players/players.json'));
+	let promises = [];
+
+}
+
+function uploadPlayer (player) {
+	return leagueDb.upsertOne(constants.PLAYER_STR, { name: player.name }, player).then(function () {
+		console.log(`player saved or updated in theory`);
+		return;	
+	});
+}
+
+function uploadPlayers (players) {
+ 	var promises = [];
+ 	for (let player of players) {
+ 		promises.push(uploadPlayer(player));
+ 	}
+ 	return Promise.all(promises);
+}
+
+export default  { getLists, getPlayerMatches, uploadPlayers };

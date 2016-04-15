@@ -7,11 +7,11 @@
 		"players": [
 			{
 				"name": "stephenwooten",
-				"destroyed": 0
+				"destroyed": 16
 			},
 			{
 				"name": "chadherrada",
-				"destroyed": 0
+				"destroyed": 100
 			}
 		]
 	},
@@ -23,11 +23,11 @@
 		"players": [
 			{
 				"name": "brunoroncada",
-				"destroyed": 0
+				"destroyed": 100
 			},
 			{
 				"name": "joaquinquintana",
-				"destroyed": 0
+				"destroyed": 66
 			}
 		]
 	},
@@ -39,7 +39,7 @@
 		"players": [
 			{
 				"name": "joshmankoff",
-				"destroyed": 0
+				"destroyed": 100
 			},
 			{
 				"name": "jamalsullivan",
@@ -55,11 +55,11 @@
 		"players": [
 			{
 				"name": "chrisvendetti",
-				"destroyed": 0
+				"destroyed": 42
 			},
 			{
 				"name": "bencolumbus",
-				"destroyed": 0
+				"destroyed": 85
 			}
 		]
 	},
@@ -71,11 +71,11 @@
 		"players": [
 			{
 				"name": "kentcamargo",
-				"destroyed": 0
+				"destroyed": 27
 			},
 			{
 				"name": "joshuastein",
-				"destroyed": 0
+				"destroyed": 100
 			}
 		]
 	}

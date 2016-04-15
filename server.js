@@ -11,15 +11,38 @@ app.use(bodyParser.json());
 let port = process.env.PORT || 9000;
 var router = express.Router();
 
+function _runLeagueScript (req, res, script, ...args) {
+	return leagueData.runScript(script, args).then(function (data) {
+		res.json(data);
+	});
+}
+
 router.get('/', function(req, res) {
     res.json({ message: 'wrong' });   
 });
-router.get('/division/:divisionId', function (req, res) {
-	let division = req.params.divisionId || `ultima`;
-	leagueData.runScript('getDivisionRankings', [division]).then(function (data) {
+
+// DIVISION routes
+router.get('/division/:divisionName/rankings', function (req, res) {
+	_runLeagueScript(req, res, 'getDivisionRankings', req.params.divisionName);
+});
+
+// PLAYER routes
+router.get('/players/:playerName', function (req, res) {
+	_runLeagueScript(req, res, 'getPlayer', req.params.playerName);
+});
+
+router.get('/players/:playerName/matches', function (req, res) {
+	_runLeagueScript(req, res, 'getPlayerMatches', [req.params.playerName]).then(function (data) {
 		res.json(data);
 	});
 });
+
+// LIST routes
+router.get('/lists/:listId', function (req, res) {
+	_runLeagueScript(req, res, 'getList', req.params.listId);
+});
+
+
 
 app.use('/api', router);
 app.listen(port);

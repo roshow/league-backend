@@ -4,6 +4,8 @@ import squadLists from './squadLists';
 import players from './players';
 import matches from './matches';
 import rankings from './getRankings';
+import constants from './constants';
+import { readFileSync } from 'fs';
 
 function nothingToDo () {
 	return Promise.resolve(`do something will ya?`);
@@ -17,6 +19,10 @@ function uploadMatchesFile (filename=`json/matches/ultima1.json`) {
 	return matches.uploadMatchesFromFile(filename);
 }
 
+function uploadPlayersFile () {
+	return players.uploadPlayers(JSON.parse(readFileSync('json/players/players.json')));
+}
+
 function getPlayerMatches (playername=`rolandogarcia`) {
 	return players.getPlayerMatches(playername).then(function (matches) {
 		for (let match of matches) {
@@ -26,11 +32,28 @@ function getPlayerMatches (playername=`rolandogarcia`) {
 	});
 }
 
+function getPlayer (name=`rolandogarcia`) {
+	return leagueDb.getOne(constants.PLAYER_STR, { name: name});
+}
+
+function getList (list_id) {
+	return leagueDb.getOne(constants.LIST_STR, { list_id: list_id});
+}
+
 function getDivisionRankings (division=`ultima`) {
 	return rankings.getDivisionRankings(division);
 }
 
-let fUNctions = { nothingToDo, uploadLists, getPlayerMatches, uploadMatchesFile,  getDivisionRankings };
+let fUNctions = { 
+	nothingToDo,
+	uploadLists,
+	getPlayerMatches,
+	uploadMatchesFile, 
+	getDivisionRankings,
+	getPlayer,
+	getList,
+	uploadPlayersFile,
+};
 
 
 function runScript (script=`nothingToDo`, args=[]) {
