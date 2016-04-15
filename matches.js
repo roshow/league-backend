@@ -3,6 +3,7 @@ import { readFileSync } from 'fs';
 import leagueLogic from './leagueLogic';
 import leagueDb from './db';
 import dbModels from './dbModels';
+import constants from './constants';
 
 // let matches = JSON.parse(readFileSync('json/matches/ultima1.json'));
 
@@ -45,6 +46,16 @@ function _addListIds ({ players, week, match_id, division }) {
 	
 }
 
+function getMatchesByPlayer (name) {
+	leagueDb.find(constants.MATCH_STR, {
+		"players.name": name
+	}, {
+		sort: {
+			week: 1
+		}
+	});
+}
+
 function uploadMatch (match) {
 	match = validateAndScoreMatch(match);
 	return _addListIds(match).then(function () {
@@ -80,6 +91,6 @@ function uploadMatchesFromFile(file) {
 // 	});
 // });
 
-export default { uploadMatch, uploadMatches, uploadMatchesFromFile };
+export default { uploadMatch, uploadMatches, uploadMatchesFromFile, getMatchesByPlayer };
 
 

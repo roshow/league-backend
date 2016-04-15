@@ -8,6 +8,10 @@ function getPlayerMatches(playername) {
 	return leagueDb
 		.find(constants.MATCH_STR, {
 			"players.name": playername
+		}, {
+			sort: {
+				week: 1
+			}
 		})
 		.then(function (matches) {
 			return matches;

@@ -11,9 +11,9 @@ function getOne (modelName, query) {
 	});
 }
 
-function find (modelName, query) {
+function find (modelName, query, options={}) {
 	return new Promise(function (resolve, reject) {
-		mongoose.model(modelName).find(query, function (err, docs) {
+		mongoose.model(modelName).find(query, null, options, function (err, docs) {
 			if (err) { reject(err); }
 			else { resolve(docs); }
 		});

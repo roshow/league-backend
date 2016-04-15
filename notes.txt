@@ -1,3 +1,7 @@
+SCRIPT OUTSTANDING:
+	* Fix pilots played by people script by just call lists and readding it every time
+
+
 * divison/:divName
 	* rankings/
 	* players/
