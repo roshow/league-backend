@@ -86,10 +86,8 @@ let player = Schema({
 	}
 });
 
-// let schemas = { player, list, match, scored_player };
-
 let List = mongoose.model('List', list);
-let Player = mongoose.model('Player', player);
+let Player = mongoose.model(constants.PLAYER_STR, player);
 let Match = mongoose.model('Match', match);
 let ScoredPlayer = mongoose.model(constants.SCOREDPLAYER_STR, scoredPlayerSchema);
 

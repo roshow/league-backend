@@ -6,7 +6,7 @@ function getOne (modelName, query) {
 	return new Promise(function (resolve, reject) {
 		mongoose.model(modelName).findOne(query, function (err, doc) {
 			if (err) { reject(err); }
-			else { resolve(doc); }
+			else { resolve(new dbModels[modelName](doc)); }
 		});
 	});
 }
