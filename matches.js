@@ -58,11 +58,9 @@ function getMatchesByPlayer (name) {
 
 function uploadMatch (match) {
 	match = validateAndScoreMatch(match);
-	return _addListIds(match).then(function () {
-		return leagueDb.upsertOne('Match', { match_id: match.match_id }, match).then(function () {
-			console.log(`matched saved or updated in theory`);
-			return;	
-		});
+	return leagueDb.upsertOne('Match', { match_id: match.match_id }, match).then(function () {
+		console.log(`matched saved or updated in theory`);
+		return;	
 	}, function (err) {
 		console.log(match.match_id, err);
 		return;

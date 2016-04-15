@@ -80,10 +80,6 @@ let player = Schema({
 		type: Schema.Types.Mixed,
 		default: []
 	},
-	matches: {
-		type: Schema.Types.Mixed,
-		default: []
-	},
 	pilots_used: {
 		type: Schema.Types.Mixed,
 		default: {}
