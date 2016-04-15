@@ -43,11 +43,13 @@ function getDivisionRankings (division) {
 	return Promise.all(promises).then(function ([scoredPlayers, matches]) {
 		// console.log(scoredPlayers, matches);
 		for (let match of matches) {
-			for (let player of match.players) {
-				let scoredPlayer = scoredPlayers[player.name];
-				scoredPlayer.lp = scoredPlayer.lp + player.lp;
-				scoredPlayer.mov = scoredPlayer.mov + player.mov;
-				scoredPlayer.games_played = scoredPlayer.games_played + 1;
+			if (match.played) {
+				for (let player of match.players) {
+					let scoredPlayer = scoredPlayers[player.name];
+					scoredPlayer.lp = scoredPlayer.lp + player.lp;
+					scoredPlayer.mov = scoredPlayer.mov + player.mov;
+					scoredPlayer.games_played = scoredPlayer.games_played + 1;
+				}
 			}
 		}
 		let scoredPlayersArr = Object.keys(scoredPlayers).map((k) => scoredPlayers[k]).sort(_compareRankings);

@@ -52,7 +52,6 @@ function connect () {
 	let u = process.env.DB_U;
 	let p = process.env.DB_P;
 
-
 	let dbInfo = `mongodb://${u}:${p}${mongoInstances.staging}`;
 	mongoose.connect(dbInfo);
 	let db = mongoose.connection;

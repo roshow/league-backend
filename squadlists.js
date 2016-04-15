@@ -47,12 +47,9 @@ function _validateAndSaveList(list) {
 				});
 
 			return Promise.all([playerPromise, listPromise]);
-			// return listPromise;
 		
 		}
 		else {
-			console.log('error with list: ');
-			console.log(normalData.message);
 			return normalData;
 		}
 	}, console.log);

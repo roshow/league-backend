@@ -6,14 +6,11 @@ import matches from './matches';
 import rankings from './getRankings';
 
 function nothingToDo () {
-	return new Promise(function (resolve) {
-		console.log('do something will ya?');
-		resolve();
-	});
+	return Promise.resolve(`do something will ya?`);
 }
 
-function uploadLists () {
-	return squadLists.uploadFromFiles(Array.from(arguments));
+function uploadLists (...args) {
+	return squadLists.uploadFromFiles(args);
 }
 
 function uploadMatchesFile (filename=`json/matches/ultima1.json`) {
@@ -45,12 +42,9 @@ function runScript (script=`nothingToDo`, args=[]) {
 	}, console.log);
 }
 
+// console.log(process.argv);
+// runScript(process.argv[2], process.argv.slice(3)).then(function (res) {
+// 	console.log(`printing script results: \n`, res);
+// });
 
-// let script = process.argv[2] || `nothingToDo`;
-// let args = process.argv.slice(3);
-
-runScript(process.argv[2], process.argv.slice(3)).then(function (res) {
-	console.log(`printing script results: \n`, res);
-});
-
-export default fUNctions;
+export default { runScript };
