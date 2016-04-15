@@ -51,7 +51,10 @@ function getDivisionRankings (division) {
 			}
 		}
 		let scoredPlayersArr = Object.keys(scoredPlayers).map((k) => scoredPlayers[k]).sort(_compareRankings);
-		console.log(scoredPlayersArr.map(p => ({ name: p.name, mov: p.mov })));
+		// let printArr = scoredPlayersArr;
+		// printArr = scoredPlayersArr.map(p => ({ name: p.name, mov: p.mov }));
+		// printArr = JSON.stringify(scoredPlayersArr);
+		// console.log(printArr);
 		return scoredPlayersArr;
 	}, console.log);
 }

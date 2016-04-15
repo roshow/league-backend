@@ -43,12 +43,21 @@ let mongoInstances = {
 	staging: `@ds011830.mlab.com:11830/xwingstaging`
 };
 
+
 function connect () {
-	let dbInfo = `mongodb://cornholio:buttholesurfers${mongoInstances.staging}`;
+	
+	// let u = `cornholio`;
+	// let p = `buttholesurfers`;
+
+	let u = process.env.DB_U;
+	let p = process.env.DB_P;
+
+
+	let dbInfo = `mongodb://${u}:${p}${mongoInstances.staging}`;
 	mongoose.connect(dbInfo);
 	let db = mongoose.connection;
 	return new Promise(function (resolve, reject) {
-		db.once('open', function () {
+		db.once('open', function (err) {
 			console.log('connected');
 			resolve();
 		});

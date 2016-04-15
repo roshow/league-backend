@@ -59,7 +59,7 @@ function _validateAndSaveList(list) {
 
 }
 
-function uploadFromFiles (lists) {
+function uploadFromFiles (lists=[`json/rolandogarcia1.json`]) {
 	let promises = [];
 	for (let i = lists.length; i--;) {
 		let newList = JSON.parse(readFileSync(lists[i]));

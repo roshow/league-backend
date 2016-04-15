@@ -5,9 +5,6 @@ import players from './players';
 import matches from './matches';
 import rankings from './getRankings';
 
-let script = process.argv[2] || `nothingToDo`;
-let args = process.argv.slice(3);
-
 function nothingToDo () {
 	return new Promise(function (resolve) {
 		console.log('do something will ya?');
@@ -16,15 +13,15 @@ function nothingToDo () {
 }
 
 function uploadLists () {
-	return squadLists.uploadFromFiles(args || `json/rolandogarcia1.json`);
+	return squadLists.uploadFromFiles(Array.from(arguments));
 }
 
-function uploadMatchesFile () {
-	return matches.uploadMatchesFromFile(args[0] || `json/matches/ultima1.json`);
+function uploadMatchesFile (filename=`json/matches/ultima1.json`) {
+	return matches.uploadMatchesFromFile(filename);
 }
 
-function getPlayerMatches () {
-	return players.getPlayerMatches(args[0] || `rolandogarcia`).then(function (matches) {
+function getPlayerMatches (playername=`rolandogarcia`) {
+	return players.getPlayerMatches(playername).then(function (matches) {
 		for (let match of matches) {
 			console.log(match.toJSON());
 		}
@@ -32,46 +29,28 @@ function getPlayerMatches () {
 	});
 }
 
-function getDivisionRankings () {
-	return rankings.getDivisionRankings(args[0] || `ultima`);
+function getDivisionRankings (division=`ultima`) {
+	return rankings.getDivisionRankings(division);
 }
 
 let fUNctions = { nothingToDo, uploadLists, getPlayerMatches, uploadMatchesFile,  getDivisionRankings };
 
 
-leagueDb.connect().then(function () {
-	var promise;
-
-	promise = fUNctions[script]();
-
-	// switch (process.argv[2]) {
-
-	// 	case "uploadLists":
-	// 		promise = squadLists.uploadFromFiles(args || 'json/rolandogarcia1.json');
-	// 		break;
-
-	// 	case "getPlayerLists":
-	// 		promise = players.getLists(args[0] || "rolandogarcia").then(function (lists) {
-	// 			console.log(lists);
-	// 			return lists;
-	// 		});
-	// 		break;
-
-	// 	case "getPlayer"
-
-	// 	case "uploadMatches":
-	// 		promise = matches.uploadMatchesFromFile(args[0] || 'json/matches/ultima1.json');
-	// 		break;
-
-	// 	default:
-	// 		promise = new Promise(function (resolve) {
-	// 			console.log('do something will ya?');
-	// 			resolve();
-	// 		});
-	// 		break;
-	// }
-
-	promise.then(leagueDb.disconnect);
+function runScript (script=`nothingToDo`, args=[]) {
+	return leagueDb.connect().then(function () {
+		return fUNctions[script](...args).then(function (response) {
+			leagueDb.disconnect();
+			return response;
+		});
+	}, console.log);
+}
 
 
-}, console.log);
+// let script = process.argv[2] || `nothingToDo`;
+// let args = process.argv.slice(3);
+
+runScript(process.argv[2], process.argv.slice(3)).then(function (res) {
+	console.log(`printing script results: \n`, res);
+});
+
+export default fUNctions;
