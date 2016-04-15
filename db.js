@@ -45,9 +45,6 @@ let mongoInstances = {
 
 
 function connect () {
-	
-	// let u = `cornholio`;
-	// let p = `buttholesurfers`;
 
 	let u = process.env.DB_U;
 	let p = process.env.DB_P;
