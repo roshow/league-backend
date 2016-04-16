@@ -3,6 +3,9 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import leagueData from './main';
 import cors from 'cors';
+import NodeCache from 'node-cache';
+
+let serverCache = new NodeCache();
 
 let app = express();
 
@@ -16,16 +19,29 @@ var router = express.Router();
 function _runLeagueScript (req, res, script, ...args) {
 	return leagueData.runScript(script, args).then(function (data) {
 		res.json(data);
+		return data;
 	});
 }
 
 router.get('/', function(req, res) {
-    res.json({ message: 'wrong' });   
+    serverCache.json({ message: 'wrong' });   
 });
 
 // DIVISION routes
 router.get('/division/:divisionName/rankings', function (req, res) {
-	_runLeagueScript(req, res, 'getDivisionRankings', req.params.divisionName);
+	let divname = req.params.divisionName;
+	let cachename = `${divname}.rankings`;
+	let rankings = serverCache.get(cachename);
+	if (rankings) {
+		console.log('using cached rankings');
+		res.json(rankings);
+	}
+	else {
+		console.log('getting rankings');
+		_runLeagueScript(req, res, 'getDivisionRankings', divname).then(function (data) {
+			serverCache.set(cachename, data, 60);
+		});
+	}
 });
 
 // PLAYER routes
