@@ -1,6 +1,5 @@
 
 import leagueDb from './db';
-import dbModels from './dbModels';
 import squadLists from './squadLists';
 import players from './players';
 import matches from './matches';
@@ -34,7 +33,7 @@ function getPlayerMatches (playername=`rolandogarcia`) {
 }
 
 function getPlayer (name=`rolandogarcia`) {
-	return leagueDb.getOne(constants.PLAYER_STR, { name: name});//.then( player => new dbModels.Player(player) );
+	return leagueDb.getOne(constants.PLAYER_STR, { name: name});
 }
 
 function getList (list_id) {

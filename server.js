@@ -2,11 +2,13 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import leagueData from './main';
+import cors from 'cors';
 
 let app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 let port = process.env.PORT || 9000;
 var router = express.Router();
