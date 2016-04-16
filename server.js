@@ -24,10 +24,11 @@ function _runLeagueScript (req, res, script, ...args) {
 }
 
 router.get('/', function(req, res) {
-    serverCache.json({ message: 'wrong' });   
+    res.json({ message: 'i am real' });   
 });
 
 // DIVISION routes
+// Division Names: ultima, argent
 router.get('/division/:divisionName/rankings', function (req, res) {
 	let divname = req.params.divisionName;
 	let cachename = `${divname}.rankings`;
