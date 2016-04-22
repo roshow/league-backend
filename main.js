@@ -1,6 +1,6 @@
 
 import leagueDb from './db';
-import squadLists from './squadLists';
+import squadLists from './squadlists';
 import players from './players';
 import matches from './matches';
 import rankings from './getRankings';
