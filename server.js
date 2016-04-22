@@ -61,6 +61,11 @@ router.get('/lists/:listId', function (req, res) {
 	_runLeagueScript(req, res, 'getList', req.params.listId);
 });
 
+// DIVISION routes
+router.get('/division/:division/matches/:week', function (req, res) {
+	_runLeagueScript(req, res, 'getMatchesByWeek', req.params.division, req.params.week);
+});
+
 
 
 app.use('/api', router);

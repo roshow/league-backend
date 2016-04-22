@@ -32,6 +32,10 @@ function getPlayerMatches (playername=`rolandogarcia`) {
 	});
 }
 
+function getMatchesByWeek(division, week) {
+	return matches.getMatchesByWeek(division, week);
+}
+
 function getPlayer (name=`rolandogarcia`) {
 	return leagueDb.getOne(constants.PLAYER_STR, { name: name});
 }
@@ -53,6 +57,7 @@ let fUNctions = {
 	getPlayer,
 	getList,
 	uploadPlayersFile,
+	getMatchesByWeek,
 };
 
 
