@@ -17,7 +17,8 @@
   },
   "scripts": {
     "main": "babel-node --presets es2015 main",
-    "api": "nodemon server.js --exec babel-node --presets es2015"
+    "api": "nodemon server.js --exec babel-node --presets es2015",
+    "api-prod": "babel-node --presets es2015 server"
   },
   "author": "roshow",
   "license": "ISC"
