@@ -71,11 +71,11 @@
 		"players": [
 			{
 				"name": "chrisvendetti",
-				"destroyed": 0
+				"destroyed": 100
 			},
 			{
 				"name": "kentcamargo",
-				"destroyed": 0
+				"destroyed": 51
 			}
 		]
 	}
