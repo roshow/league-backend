@@ -56,8 +56,7 @@ function getMatchesByPlayer (name) {
 	});
 }
 
-function getMatchesByWeek (division, week) {
-	console.log(division,week);
+function getMatchesByWeek (division, season, week) {
 	return leagueDb.find(constants.MATCH_STR, {
 		"week": week,
 		"division": division
@@ -91,16 +90,13 @@ function uploadMatchesFromFile(file) {
 	return uploadMatches(JSON.parse(readFileSync(file)));
 }
 
-// leagueDb.connect().then(function () {
-// 	let match = matches[1];
-// 	addListIds(match.players, match.week).then(function () {
-// 		uploadMatch(match).then(function () {
-// 			console.log(`matched saved or updated in theory`);
-// 			leagueDb.disconnect();
-// 		});
-// 	});
-// });
 
-export default { uploadMatch, uploadMatches, uploadMatchesFromFile, getMatchesByPlayer, getMatchesByWeek };
+export default { 
+	uploadMatch,
+	uploadMatches,
+	uploadMatchesFromFile,
+	getMatchesByPlayer,
+	getMatchesByWeek,
+};
 
 

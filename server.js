@@ -62,8 +62,13 @@ router.get('/lists/:listId', function (req, res) {
 });
 
 // DIVISION routes
-router.get('/division/:division/matches/:week', function (req, res) {
-	_runLeagueScript(req, res, 'getMatchesByWeek', req.params.division, req.params.week);
+// router.get('/division/:division/season/:season/matches/:week', function (req, res) {
+// 	_runLeagueScript(req, res, 'getMatchesByWeek', req.params.division, req.param.season, req.params.week);
+// });
+
+// MATCHES routes
+router.get('/matches/division/:division/season/:season/week/:week', function (req, res) {
+	_runLeagueScript(req, res, 'getMatchesByWeek', req.params.division, req.param.season, req.params.week);
 });
 
 

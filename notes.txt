@@ -16,8 +16,12 @@ SCRIPT OUTSTANDING:
 		* /lists
 
 * /matches
-	* by division
-	* by week?
+	* /
+	* /division/:division
+		* /season/:season
+			* /week/:week
+	* /player/:player
+		*/season/:season
 
 * lists/:listId
 	*

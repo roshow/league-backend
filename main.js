@@ -32,8 +32,8 @@ function getPlayerMatches (playername=`rolandogarcia`) {
 	});
 }
 
-function getMatchesByWeek(division, week) {
-	return matches.getMatchesByWeek(division, week);
+function getMatchesByWeek(division, season, week) {
+	return matches.getMatchesByWeek(division, season, week);
 }
 
 function getPlayer (name=`rolandogarcia`) {

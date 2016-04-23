@@ -48,7 +48,11 @@ let match = Schema({
 		type: Boolean,
 		Default: false
 	},
-	players: [match_player]
+	players: [match_player],
+	season: {
+		type: Number,
+		default: 1
+	}
 });
 
 let pilot = Schema({
