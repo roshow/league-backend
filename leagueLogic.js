@@ -17,6 +17,17 @@ function calculateLeaguePoints (players, wasPlayed) {
 		return [0, 0];
 	}
 
+	if (wasPlayed === 2) {
+		return [{
+			lp: (destroyed1 > destroyed2) ? 4 : 1,
+			mov: destroyed1
+		}, 
+		{
+			lp: (destroyed2 > destroyed1) ? 4 : 1,
+			mov: destroyed2
+		}];
+	}
+
 	let diff = destroyed1 - destroyed2;
 	let absdiff = Math.abs(diff);
 

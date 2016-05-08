@@ -8,15 +8,13 @@ import constants from './constants';
 // let matches = JSON.parse(readFileSync('json/matches/ultima1.json'));
 
 function validateAndScoreMatch (match) {
-	
 	match.match_id = `${match.division}-${match.week}-${match.game}`;
 	let players = match.players;
-	let points = leagueLogic.calculateLeaguePoints(players, match.played);
+	let points = leagueLogic.calculateLeaguePoints(players, match.gamePlayed);
 	players[0].lp = points[0].lp;
 	players[1].lp = points[1].lp;
 	players[0].mov = points[0].mov;
 	players[1].mov = points[1].mov;
-	match.played = (players[0].lp > 0);
 	
 	return match;
 
@@ -56,13 +54,20 @@ function getMatchesByPlayer (name) {
 	});
 }
 
-function getMatchesByWeek (division, season, week) {
-	return leagueDb.find(constants.MATCH_STR, {
-		"week": week,
-		"division": division
-	}, {
+function getMatchesByDivision (division, season, week) {
+	// weird logic until season data point gets filled in db matches
+	season = (season === '1') ? undefined : season;
+	let query = {
+		division: division,
+		season: season,
+	};
+	if (week) {
+		query.week = week;
+	}
+	return leagueDb.find(constants.MATCH_STR, query, {
 		sort: {
-			game: 1
+			week: 1,
+			game: 1,
 		}
 	});
 }
@@ -96,7 +101,7 @@ export default {
 	uploadMatches,
 	uploadMatchesFromFile,
 	getMatchesByPlayer,
-	getMatchesByWeek,
+	getMatchesByDivision,
 };
 
 

@@ -1,0 +1,317 @@
+[
+    {
+        "week": 1,
+        "player1": "Sean Duffy",
+        "player2": "Matthew Kreiner",
+        "points1": 0,
+        "points2": 100,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 1,
+        "player1": "Cal Neuvost",
+        "player2": "John DiMaggio",
+        "points1": 76,
+        "points2": 100,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 1,
+        "player1": "Rolando Garcia",
+        "player2": "Dave Caruana",
+        "points1": 14,
+        "points2": 100,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 1,
+        "player1": "Ben Fullon",
+        "player2": "Michael Kaufman",
+        "points1": 64,
+        "points2": 79,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 1,
+        "player1": "Marek Marcinkiewicz",
+        "player2": "Damian Jhagroo",
+        "points1": 60,
+        "points2": 42,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 2,
+        "player1": "John DiMaggio",
+        "player2": "Sean Duffy",
+        "points1": 100,
+        "points2": 42,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 2,
+        "player1": "Matthew Kreiner",
+        "player2": "Dave Caruana",
+        "points1": 100,
+        "points2": 77,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 2,
+        "player1": "Cal Neuvost",
+        "player2": "Michael Kaufman",
+        "points1": 41,
+        "points2": 100,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 2,
+        "player1": "Rolando Garcia",
+        "player2": "Damian Jhagroo",
+        "points1": 100,
+        "points2": 48,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 2,
+        "player1": "Ben Fullon",
+        "player2": "Marek Marcinkiewicz",
+        "points1": 100,
+        "points2": 20,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 3,
+        "player1": "Sean Duffy",
+        "player2": "Dave Caruana",
+        "points1": 29,
+        "points2": 100,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 3,
+        "player1": "John DiMaggio",
+        "player2": "Michael Kaufman",
+        "points1": 71,
+        "points2": 58,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 3,
+        "player1": "Matthew Kreiner",
+        "player2": "Damian Jhagroo",
+        "points1": 100,
+        "points2": 0,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 3,
+        "player1": "Cal Neuvost",
+        "player2": "Marek Marcinkiewicz",
+        "points1": 62,
+        "points2": 100,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 3,
+        "player1": "Rolando Garcia",
+        "player2": "Ben Fullon",
+        "points1": 77,
+        "points2": 100,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 4,
+        "player1": "Michael Kaufman",
+        "player2": "Sean Duffy",
+        "points1": 74,
+        "points2": 100,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 4,
+        "player1": "Dave Caruana",
+        "player2": "Damian Jhagroo",
+        "points1": 0,
+        "points2": 0,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 4,
+        "player1": "John DiMaggio",
+        "player2": "Marek Marcinkiewicz",
+        "points1": 49,
+        "points2": 100,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 4,
+        "player1": "Matthew Kreiner",
+        "player2": "Ben Fullon",
+        "points1": 50,
+        "points2": 100,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 4,
+        "player1": "Cal Neuvost",
+        "player2": "Rolando Garcia",
+        "points1": 0,
+        "points2": 0,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 5,
+        "player1": "Sean Duffy",
+        "player2": "Damian Jhagroo",
+        "points1": 55,
+        "points2": 29,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 5,
+        "player1": "Michael Kaufman",
+        "player2": "Marek Marcinkiewicz",
+        "points1": 100,
+        "points2": 24,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 5,
+        "player1": "Dave Caruana",
+        "player2": "Ben Fullon",
+        "points1": 100,
+        "points2": 44,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 5,
+        "player1": "John DiMaggio",
+        "player2": "Rolando Garcia",
+        "points1": 55,
+        "points2": 49,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 5,
+        "player1": "Matthew Kreiner",
+        "player2": "Cal Neuvost",
+        "points1": 0,
+        "points2": 0,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 6,
+        "player1": "Marek Marcinkiewicz",
+        "player2": "Sean Duffy",
+        "points1": 100,
+        "points2": 29,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 6,
+        "player1": "Damian Jhagroo",
+        "player2": "Ben Fullon",
+        "points1": 21,
+        "points2": 100,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 6,
+        "player1": "Michael Kaufman",
+        "player2": "Rolando Garcia",
+        "points1": 100,
+        "points2": 72,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 6,
+        "player1": "Dave Caruana",
+        "player2": "Cal Neuvost",
+        "points1": 0,
+        "points2": 0,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 6,
+        "player1": "John DiMaggio",
+        "player2": "Matthew Kreiner",
+        "points1": 0,
+        "points2": 0,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 7,
+        "player1": "Sean Duffy",
+        "player2": "Ben Fullon",
+        "points1": 0,
+        "points2": 0,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 7,
+        "player1": "Marek Marcinkiewicz",
+        "player2": "Rolando Garcia",
+        "points1": 0,
+        "points2": 0,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 7,
+        "player1": "Damian Jhagroo",
+        "player2": "Cal Neuvost",
+        "points1": 0,
+        "points2": 0,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 7,
+        "player1": "Michael Kaufman",
+        "player2": "Matthew Kreiner",
+        "points1": 0,
+        "points2": 0,
+        "division": "ultima",
+        "played": false
+    },
+    {
+        "week": 7,
+        "player1": "Dave Caruana",
+        "player2": "John DiMaggio",
+        "points1": 0,
+        "points2": 0,
+        "division": "ultima",
+        "played": false
+    }
+]

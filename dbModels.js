@@ -46,7 +46,11 @@ let match = Schema({
 	match_id: String,
 	played: {
 		type: Boolean,
-		Default: false
+		default: false
+	},
+	gamePlayed: {
+		type: Number,
+		default: 0
 	},
 	players: [match_player],
 	season: {
