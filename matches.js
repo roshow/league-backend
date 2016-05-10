@@ -11,13 +11,11 @@ function validateAndScoreMatch (match) {
 	match.match_id = `${match.division}-${match.week}-${match.game}`;
 	let players = match.players;
 	let points = leagueLogic.calculateLeaguePoints(players, match.gamePlayed);
-	players[0].lp = points[0].lp;
-	players[1].lp = points[1].lp;
-	players[0].mov = points[0].mov;
-	players[1].mov = points[1].mov;
-	
+	for (let i = 2; i--;) {
+		players[i].lp = points[i].lp;
+		players[i].mov = points[i].mov;
+	}
 	return match;
-
 }
 
 function _addListIds ({ players, week, match_id, division }) {
@@ -75,8 +73,11 @@ function getMatchesByDivision (division, season, week) {
 function uploadMatch (match) {
 	match = validateAndScoreMatch(match);
 	return leagueDb.upsertOne('Match', { match_id: match.match_id }, match).then(function () {
-		console.log(`matched saved or updated in theory`);
-		return;	
+		// console.log(`matched saved or updated in theory`);
+		return {
+			match: match.match_id,
+			update: true
+		};
 	}, function (err) {
 		console.log(match.match_id, err);
 		return;

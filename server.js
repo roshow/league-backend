@@ -1,7 +1,7 @@
 
 import express from 'express';
 import bodyParser from 'body-parser';
-import leagueData from './main';
+import leagueScripts from './leagueScripts';
 import cors from 'cors';
 import NodeCache from 'node-cache';
 
@@ -17,7 +17,7 @@ let port = process.env.PORT || 9000;
 var router = express.Router();
 
 function _runLeagueScript (req, res, script, ...args) {
-	return leagueData.runScript(script, args).then(function (data) {
+	return leagueScripts.runScript(script, args).then(function (data) {
 		res.json(data);
 		return data;
 	});

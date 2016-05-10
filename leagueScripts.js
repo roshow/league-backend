@@ -5,10 +5,15 @@ import players from './players';
 import matches from './matches';
 import rankings from './getRankings';
 import constants from './constants';
+import csvconvert from './csvconvert';
 import { readFileSync } from 'fs';
 
 function nothingToDo () {
 	return Promise.resolve(`do something will ya?`);
+}
+
+function updateMatchesFromSS () {
+	return csvconvert.getMatchesFromUrls().then(matches.uploadMatches);
 }
 
 function uploadLists (...args) {
@@ -58,6 +63,7 @@ let fUNctions = {
 	getList,
 	uploadPlayersFile,
 	getMatchesByDivision,
+	updateMatchesFromSS,
 };
 
 
@@ -72,7 +78,9 @@ function runScript (script=`nothingToDo`, args=[]) {
 
 if (process.argv[2] === 'runscript') {
 	runScript(process.argv[3], process.argv.slice(4)).then(function (res) {
-		console.log(`printing script results: \n`, res);
+		if (res) {
+			console.log(`printing script results: \n`, res);	
+		}
 	});
 }
 
