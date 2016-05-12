@@ -27,9 +27,8 @@ router.get('/', function(req, res) {
     res.json({ message: 'i am real' });   
 });
 
-// DIVISION routes
-// Division Names: ultima, argent
-router.get('/division/:divisionName/rankings', function (req, res) {
+// RANKINGS routes
+router.get('/rankings/:divisionName', function (req, res) {
 	let divname = req.params.divisionName;
 	let cachename = `${divname}.rankings`;
 	let rankings = serverCache.get(cachename);
@@ -46,6 +45,13 @@ router.get('/division/:divisionName/rankings', function (req, res) {
 });
 
 // PLAYER routes
+
+// GET All Players
+router.get('/players', function (req, res) {
+	_runLeagueScript(req, res, 'getPlayer');
+});
+
+// GET Player by name (id)
 router.get('/players/:playerName', function (req, res) {
 	_runLeagueScript(req, res, 'getPlayer', req.params.playerName);
 });
@@ -66,11 +72,13 @@ router.get('/lists/:listId', function (req, res) {
 // 	_runLeagueScript(req, res, 'getMatchesByWeek', req.params.division, req.param.season, req.params.week);
 // });
 
-// MATCHES routes
-router.get('/matches/division/:division/season/:season/week/:week', function (req, res) {
+/* MATCHES routes */
+// GET Matches by Division, Season
+router.get('/matches/division/:division/season/:season', function (req, res) {
 	_runLeagueScript(req, res, 'getMatchesByDivision', req.params.division, req.params.season, req.params.week);
 });
-router.get('/matches/division/:division/season/:season', function (req, res) {
+// GET Matches by Division, Season, Week
+router.get('/matches/division/:division/season/:season/week/:week', function (req, res) {
 	_runLeagueScript(req, res, 'getMatchesByDivision', req.params.division, req.params.season, req.params.week);
 });
 

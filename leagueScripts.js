@@ -41,8 +41,11 @@ function getMatchesByDivision(division, season, week) {
 	return matches.getMatchesByDivision(division, season, week);
 }
 
-function getPlayer (name=`rolandogarcia`) {
-	return leagueDb.getOne(constants.PLAYER_STR, { name: name});
+function getPlayer (name) {
+	if (!name) {
+		return leagueDb.find(constants.PLAYER_STR, {});
+	}
+	return leagueDb.getOne(constants.PLAYER_STR, { name: name });
 }
 
 function getList (list_id) {
