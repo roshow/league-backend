@@ -36,16 +36,21 @@ function _compareRankings(a,b) {
 
 
 function getDivisionRankings (division) {
-	var promises = [];
-	promises.push(_getDivisionPlayers(division));
-	promises.push(_getDivisionMatches(division));
-	// promises.push(leagueDb.remove(SCOREDPLAYER_STR, {}));
-	return Promise.all(promises).then(function ([scoredPlayers, matches]) {
-		// console.log(scoredPlayers, matches);
+	return _getDivisionMatches(division).then(function (matches) {
+		scoredPlayers = {};
 		for (let match of matches) {
 			if (match.played) {
 				for (let player of match.players) {
-					let scoredPlayer = scoredPlayers[player.name];
+					let scoredPlayer;
+					if (!scoredPlayers[player.name]) {
+						scoredPlayers[player.name] = {
+							name: player.name,
+							lp: 0,
+							mov: 0,
+							games_played: 0,
+						};
+					}
+					scoredPlayer = scoredPlayers[player.name];
 					scoredPlayer.lp = scoredPlayer.lp + player.lp;
 					scoredPlayer.mov = scoredPlayer.mov + player.mov;
 					scoredPlayer.games_played = scoredPlayer.games_played + 1;
