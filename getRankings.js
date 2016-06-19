@@ -16,6 +16,7 @@ function _getDivisionPlayers (division) {
 }
 
 function _getDivisionMatches (division) {
+	// eventually add season
 	return leagueDb.find(constants.MATCH_STR, {
 		division: division
 	});
@@ -35,11 +36,13 @@ function _compareRankings(a,b) {
 }
 
 
-function getDivisionRankings (division) {
+function getDivisionRankings (division, season) {
 	return _getDivisionMatches(division).then(function (matches) {
-		scoredPlayers = {};
+		let scoredPlayers = {};
+		console.log(matches);
 		for (let match of matches) {
 			if (match.played) {
+				console.log('match played');
 				for (let player of match.players) {
 					let scoredPlayer;
 					if (!scoredPlayers[player.name]) {
@@ -62,6 +65,7 @@ function getDivisionRankings (division) {
 		// printArr = scoredPlayersArr.map(p => ({ name: p.name, mov: p.mov }));
 		// printArr = JSON.stringify(scoredPlayersArr);
 		// console.log(printArr);
+		console.log('scoredPlayersArr: ', scoredPlayersArr);
 		return scoredPlayersArr;
 	}, console.log);
 }

@@ -52,8 +52,8 @@ function getList (list_id) {
 	return leagueDb.getOne(constants.LIST_STR, { list_id: list_id});
 }
 
-function getDivisionRankings (division=`ultima`) {
-	return rankings.getDivisionRankings(division);
+function getDivisionRankings (division=`ultima`, season=`s1`) {
+	return rankings.getDivisionRankings(division, season);
 }
 
 let fUNctions = { 

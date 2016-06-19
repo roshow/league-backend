@@ -28,12 +28,6 @@ function getLists(playername) {
 		}, console.log);
 }
 
-function upsertPlayersFromJson () {
-	let players = JSON.parse(readFileSync('json/players/players.json'));
-	let promises = [];
-
-}
-
 function uploadPlayer (player) {
 	return leagueDb.upsertOne(constants.PLAYER_STR, { name: player.name }, player).then(function () {
 		console.log(`player saved or updated in theory`);

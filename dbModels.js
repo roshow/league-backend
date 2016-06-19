@@ -83,7 +83,7 @@ let list = Schema({
 let player = Schema({
 	name: String,
 	print_name: String,
-	division: String,
+	division: Schema.Types.Mixed,
 	lists: {
 		type: Schema.Types.Mixed,
 		default: []

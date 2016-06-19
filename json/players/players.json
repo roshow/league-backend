@@ -2,101 +2,101 @@
     {
         "name": "rolandogarcia",
         "print_name": "Rolando Garcia",
-        "division": "ultima"
+        "division": { "s1": "ultima" }
     },
     {
         "name": "matthewkreiner",
         "print_name": "Matthew Kreiner",
-        "division": "ultima"
+        "division": { "s1": "ultima" }
     },
     {
         "name": "michaelkaufman",
         "print_name": "Mike Kaufman",
-        "division": "ultima"
+        "division": { "s1": "ultima" }
     },
     {
         "name": "kentcamargo",
         "print_name": "Kent Camargo",
-        "division": "argent"
+        "division": { "s1": "argent" }
     },
     {
         "name": "marekmarcinkiewicz",
         "print_name": "Marek Marcinkiewicz",
-        "division": "ultima"
+        "division": { "s1": "ultima" }
     },
     {
         "name": "joshuastein",
         "print_name": "Joshua Stein",
-        "division": "argent"
+        "division": { "s1": "argent" }
     },
     {
         "name": "joshmankoff",
         "print_name": "Josh Mankoff",
-        "division": "argent"
+        "division": { "s1": "argent" }
     },
     {
         "name": "damianjhagroo",
         "print_name": "Damian Jhagroo",
-        "division": "ultima"
+        "division": { "s1": "ultima" }
     },
     {
         "name": "calneuvost",
         "print_name": "Cal Neuvost",
-        "division": "ultima"
+        "division": { "s1": "ultima" }
     },
     {
         "name": "brunoroncada",
         "print_name": "Bruno Roncada",
-        "division": "argent"
+        "division": { "s1": "argent" }
     },
     {
         "name": "benfullon",
         "print_name": "Ben Fullon",
-        "division": "ultima"
+        "division": { "s1": "ultima" }
     },
     {
         "name": "bencolumbus",
         "print_name": "Ben Columbus",
-        "division": "argent"
+        "division": { "s1": "argent" }
     },
     {
         "name": "stephenwooten",
         "print_name": "Stephen Wooten",
-        "division": "argent"
+        "division": { "s1": "argent" }
     },
     {
         "name": "seanduffy",
         "print_name": "Sean Duffy",
-        "division": "ultima"
+        "division": { "s1": "ultima" }
     },
     {
         "name": "joaquinquintana",
         "print_name": "Joaquin Quintana",
-        "division": "argent"
+        "division": { "s1": "argent" }
     },
     {
         "name": "johndimaggio",
         "print_name": "John DiMaggio",
-        "division": "ultima"
+        "division": { "s1": "ultima" }
     },
     {
         "name": "jamalsullivan",
         "print_name": "Jamal Sullivan",
-        "division": "argent"
+        "division": { "s1": "argent" }
     },
     {
         "name": "chrisvendetti",
         "print_name": "Chris Vendetti",
-        "division": "argent"
+        "division": { "s1": "argent" }
     },
     {
         "name": "chadherrada",
         "print_name": "Chad Herrada",
-        "division": "argent"
+        "division": { "s1": "argent" }
     },
     {
         "name": "davecaruana",
         "print_name": "Dave Caruana",
-        "division": "ultima"
+        "division": { "s1": "ultima" }
     }
 ]
