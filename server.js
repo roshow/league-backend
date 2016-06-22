@@ -81,7 +81,7 @@ router.get('/matches/division/:division/season/:season', function (req, res) {
 });
 // GET Matches by Division, Season, Week
 router.get('/matches/division/:division/season/:season/week/:week', function (req, res) {
-	_runLeagueScript(req, res, 'getMatchesByDivision', req.params.division, req.params.season, req.params.week);
+	_runLeagueScript(req, res, 'getMatchesByDivision', req.params.division, req.params.week, req.params.season);
 });
 
 

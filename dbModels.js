@@ -42,6 +42,7 @@ let match_player = Schema({
 let match = Schema({
 	week: Number,
 	game: Number,
+	season: Number,
 	division: String,
 	match_id: String,
 	played: {

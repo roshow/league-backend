@@ -8,7 +8,7 @@ import constants from './constants';
 // let matches = JSON.parse(readFileSync('json/matches/ultima1.json'));
 
 function validateAndScoreMatch (match) {
-	match.match_id = `${match.division}-${match.week}-${match.game}`;
+	match.match_id = `${match.division}-${match.season}-${match.week}-${match.game}`;
 	let players = match.players;
 	let points = leagueLogic.calculateLeaguePoints(players, match.gamePlayed);
 	for (let i = 2; i--;) {
@@ -52,9 +52,7 @@ function getMatchesByPlayer (name) {
 	});
 }
 
-function getMatchesByDivision (division, season, week) {
-	// weird logic until season data point gets filled in db matches
-	season = (season === '1') ? undefined : season;
+function getMatchesByDivision (division,  week, season=2) {
 	let query = {
 		division: division,
 		season: season,

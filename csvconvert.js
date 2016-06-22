@@ -4,16 +4,19 @@ import { readFileSync, writeFile, createReadStream } from 'fs';
 import { Converter } from 'csvtojson';
 import request from 'request';
 
+// Literally all this shit is hardcoded and gross. Seriously, check every goddamn function and you'll see. Every single one.
 let _writeToFile = false;
 let urls = {
-	ultima: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=0`,
-	argent: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=1526608063`
+	ultima_s1: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=0`,
+	argent_s1: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=1526608063`,
+	ultima_s2: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=1705180204`
 };
 function formatMatches (rawmatches) {
   return rawmatches.map( (match, i) => (
 		{
 			week: match.week,
 			division: match.division,
+			season: match.season,
 			game: (i + 1),
 			played: !!match.played,
 			gamePlayed: match.played,
@@ -34,7 +37,7 @@ function formatMatches (rawmatches) {
 
 function convertThoseMatches (division, convertType, data) {
 	return new Promise(function (resolve, reject) {
-		division = ( division === 'ultima' || division === 'argent' ) ? division : false;
+		division = /(argent|ultima)_s(\d+)/.test(division) ? division : false;
 		convertType = ( convertType === 'url' || convertType === 'file' ) ? convertType : false;
 		let arg = data || false;
 
@@ -75,10 +78,11 @@ function convertThoseMatches (division, convertType, data) {
 function getMatchesFromUrls (writeToFile) {
 	_writeToFile = writeToFile;
 	return Promise.all([
-		convertThoseMatches('ultima', 'url'),
-		convertThoseMatches('argent', 'url')
+		convertThoseMatches('ultima_s1', 'url'),
+		convertThoseMatches('argent_s1', 'url'),
+		convertThoseMatches('ultima_s2', 'url')
 	]).then(function (results) {
-		let allmatches = [...results[0], ...results[1]];
+		let allmatches = results.reduce( (complete, arr) => complete.concat(arr), [] );
 		return allmatches;
 	});
 }
