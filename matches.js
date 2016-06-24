@@ -18,30 +18,6 @@ function validateAndScoreMatch (match) {
 	return match;
 }
 
-function _addListIds ({ players, week, match_id, division }) {
-
-	let promises = [];
-	players.forEach(function (player) {
-		let name = player.name;
-		promises.push(
-			leagueDb.getOne('Player', { name: name }).then(function (savedPlayer) {
-				if (!savedPlayer) {
-					return Promise.reject(`No player with the name: ${name}`);
-				}
-				let weekIndex = week - 1;
-				player.list_id = savedPlayer.lists[weekIndex];
-				savedPlayer.matches[weekIndex] = match_id;
-				return savedPlayer.update({
-					division: division,
-					matches: savedPlayer.matches
-				});
-			}, console.log));
-	});
-
-	return Promise.all(promises);
-	
-}
-
 function getMatchesByPlayer (name) {
 	leagueDb.find(constants.MATCH_STR, {
 		"players.name": name

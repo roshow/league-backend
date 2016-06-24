@@ -15,10 +15,11 @@ function _getDivisionPlayers (division) {
 	}, console.log);
 }
 
-function _getDivisionMatches (division) {
+function _getDivisionMatches (division, season) {
 	// eventually add season
 	return leagueDb.find(constants.MATCH_STR, {
-		division: division
+		division,
+		season,
 	});
 }
 
@@ -37,11 +38,10 @@ function _compareRankings(a,b) {
 
 
 function getDivisionRankings (division, season) {
-	return _getDivisionMatches(division).then(function (matches) {
+	return _getDivisionMatches(division, season).then(function (matches) {
 		let scoredPlayers = {};
-		console.log(matches);
-		for (let match of matches) {
-			if (match.played) {
+		for (let match of matches) {			
+			// if (match.played) {
 				console.log('match played');
 				for (let player of match.players) {
 					let scoredPlayer;
@@ -56,16 +56,16 @@ function getDivisionRankings (division, season) {
 					scoredPlayer = scoredPlayers[player.name];
 					scoredPlayer.lp = scoredPlayer.lp + player.lp;
 					scoredPlayer.mov = scoredPlayer.mov + player.mov;
-					scoredPlayer.games_played = scoredPlayer.games_played + 1;
+					scoredPlayer.games_played = scoredPlayer.games_played + (match.player? 1 : 0);
 				}
-			}
+			// }
 		}
 		let scoredPlayersArr = Object.keys(scoredPlayers).map((k) => scoredPlayers[k]).sort(_compareRankings);
 		// let printArr = scoredPlayersArr;
 		// printArr = scoredPlayersArr.map(p => ({ name: p.name, mov: p.mov }));
 		// printArr = JSON.stringify(scoredPlayersArr);
 		// console.log(printArr);
-		console.log('scoredPlayersArr: ', scoredPlayersArr);
+		// console.log('scoredPlayersArr: ', scoredPlayersArr);
 		return scoredPlayersArr;
 	}, console.log);
 }

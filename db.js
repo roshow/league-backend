@@ -12,10 +12,13 @@ function getOne (modelName, query) {
 }
 
 function find (modelName, query, options={}) {
+	console.log(query);
 	return new Promise(function (resolve, reject) {
 		mongoose.model(modelName).find(query, null, options, function (err, docs) {
 			if (err) { reject(err); }
-			else { resolve(docs); }
+			else { 
+				resolve(docs); 
+			}
 		});
 	});
 }
@@ -61,7 +64,7 @@ function connect () {
 }
 
 function disconnect () {
-	console.log('disconnecting');
+	// console.log('disconnecting');
 	mongoose.disconnect();
 }
 

@@ -9,7 +9,8 @@ let _writeToFile = false;
 let urls = {
 	ultima_s1: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=0`,
 	argent_s1: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=1526608063`,
-	ultima_s2: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=1705180204`
+	ultima_s2: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=1705180204`,
+	argent_s2: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=783431773`,
 };
 function formatMatches (rawmatches) {
   return rawmatches.map( (match, i) => (
@@ -77,11 +78,8 @@ function convertThoseMatches (division, convertType, data) {
 
 function getMatchesFromUrls (writeToFile) {
 	_writeToFile = writeToFile;
-	return Promise.all([
-		convertThoseMatches('ultima_s1', 'url'),
-		convertThoseMatches('argent_s1', 'url'),
-		convertThoseMatches('ultima_s2', 'url')
-	]).then(function (results) {
+	let promises = Object.keys(urls).map( matches => convertThoseMatches(matches, 'url') );
+	return Promise.all(promises).then(function (results) {
 		let allmatches = results.reduce( (complete, arr) => complete.concat(arr), [] );
 		return allmatches;
 	});

@@ -30,20 +30,20 @@ router.get('/', function(req, res) {
 // RANKINGS routes
 router.get('/rankings/season/:season/division/:division', function (req, res) {
 	let division = req.params.division;
-	let season = `s${req.params.season}`;
+	let season = req.params.season;
 	let cachename = `${division}.rankings`;
-	let rankings = serverCache.get(cachename);
-	if (rankings) {
-		console.log('using cached rankings');
-		res.json(rankings);
-	}
-	else {
+	let rankings;//= serverCache.get(cachename);
+	// if (rankings) {
+	// 	console.log('using cached rankings');
+	// 	res.json(rankings);
+	// }	
+	// else {
 		console.log('getting rankings');
 		_runLeagueScript(req, res, 'getDivisionRankings', division, season).then(function (data) {
 			serverCache.set(cachename, data, 60);
 			res.json(data);
 		});
-	}
+	// }
 });
 
 // PLAYER routes

@@ -3,7 +3,7 @@ import leagueDb from './db';
 import squadLists from './squadlists';
 import players from './players';
 import matches from './matches';
-import rankings from './getRankings';
+import rankings from './rankings';
 import constants from './constants';
 import csvconvert from './csvconvert';
 import { readFileSync } from 'fs';
@@ -30,9 +30,9 @@ function uploadPlayersFile () {
 
 function getPlayerMatches (playername=`rolandogarcia`) {
 	return players.getPlayerMatches(playername).then(function (matches) {
-		for (let match of matches) {
-			console.log(match.toJSON());
-		}
+		// for (let match of matches) {
+		// 	console.log(match.toJSON());
+		// }
 		return matches;
 	});
 }
@@ -52,7 +52,7 @@ function getList (list_id) {
 	return leagueDb.getOne(constants.LIST_STR, { list_id: list_id});
 }
 
-function getDivisionRankings (division=`ultima`, season=`s1`) {
+function getDivisionRankings (division=`ultima`, season=1) {
 	return rankings.getDivisionRankings(division, season);
 }
 
