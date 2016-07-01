@@ -45,6 +45,10 @@ let match = Schema({
 	season: Number,
 	division: String,
 	match_id: String,
+	winner: {
+		type: String,
+		default: ''
+	},
 	played: {
 		type: Boolean,
 		default: false

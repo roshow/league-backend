@@ -15,6 +15,12 @@ function validateAndScoreMatch (match) {
 		players[i].lp = points[i].lp;
 		players[i].mov = points[i].mov;
 	}
+	if (players[0].mov > players[1].mov) {
+		match.winner = players[0].name;
+	}
+	else if (players[0].mov < players[1].mov) {
+		match.winner = players[1].name;
+	}
 	return match;
 }
 
