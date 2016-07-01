@@ -56,7 +56,7 @@ function getDivisionRankings (division, season) {
 					scoredPlayer = scoredPlayers[player.name];
 					scoredPlayer.lp = scoredPlayer.lp + player.lp;
 					scoredPlayer.mov = scoredPlayer.mov + player.mov;
-					scoredPlayer.games_played = scoredPlayer.games_played + (match.player? 1 : 0);
+					scoredPlayer.games_played = scoredPlayer.games_played + (match.played? 1 : 0);
 				}
 			// }
 		}
