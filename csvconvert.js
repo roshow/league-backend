@@ -5,7 +5,7 @@ import { Converter } from 'csvtojson';
 import request from 'request';
 
 // Literally all this shit is hardcoded and gross. Seriously, check every goddamn function and you'll see. Every single one.
-let _writeToFile = false;
+let _writeToFile = true;
 let urls = {
 	ultima_s1: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=0`,
 	argent_s1: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=1526608063`,
@@ -13,8 +13,8 @@ let urls = {
 	argent_s2: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=783431773`,
 };
 function formatMatches (rawmatches) {
-  return rawmatches.map( (match, i) => (
-		{
+  return rawmatches.map( (match, i) => {
+		return {
 			week: match.week,
 			division: match.division,
 			season: match.season,
@@ -24,15 +24,17 @@ function formatMatches (rawmatches) {
 			players: [
 				{
 					name: match.player1.replace(/\s/g, '').toLowerCase(),
-					destroyed: match.points1
+					destroyed: match.points1,
+					list_link: match.player1list1,
 				},
 				{
 					name: match.player2.replace(/\s/g, '').toLowerCase(),
-					destroyed: match.points2
+					destroyed: match.points2,
+					list_link: match.player2list1,
 				}
 			]
-		}
-	));
+		};
+	});
 }
 
 

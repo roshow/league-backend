@@ -36,7 +36,11 @@ let match_player = Schema({
 	mov: {
 		type: Number,
 		default: 0
-	}
+	},
+	list_link: {
+		type: String,
+		default: ''
+	},
 });
 
 let match = Schema({
