@@ -93,14 +93,15 @@ let player = Schema({
 	name: String,
 	print_name: String,
 	division: Schema.Types.Mixed,
-	lists: {
-		type: Schema.Types.Mixed,
-		default: []
-	},
-	pilots_used: {
-		type: Schema.Types.Mixed,
-		default: {}
-	}
+	seasons: Schema.Types.Mixed,
+	// lists: {
+	// 	type: Schema.Types.Mixed,
+	// 	default: []
+	// },
+	// pilots_used: {
+	// 	type: Schema.Types.Mixed,
+	// 	default: {}
+	// }
 });
 
 let List = mongoose.model('List', list);

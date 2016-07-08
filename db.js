@@ -12,7 +12,6 @@ function getOne (modelName, query) {
 }
 
 function find (modelName, query, options={}) {
-	console.log(query);
 	return new Promise(function (resolve, reject) {
 		mongoose.model(modelName).find(query, null, options, function (err, docs) {
 			if (err) { reject(err); }
@@ -23,7 +22,7 @@ function find (modelName, query, options={}) {
 	});
 }
 
-function upsertOne(modelName, query, newModel) {
+function upsertOne (modelName, query, newModel) {
 	return new Promise(function (resolve, reject) {
 		mongoose.model(modelName).findOneAndUpdate(query, newModel, { upsert: true }, function (err) {
 			if (err) { reject(err); }

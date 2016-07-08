@@ -45,7 +45,7 @@ function getPlayer (name) {
 	if (!name) {
 		return leagueDb.find(constants.PLAYER_STR, {});
 	}
-	return leagueDb.getOne(constants.PLAYER_STR, { name: name });
+	return players.getPlayer(name);
 }
 
 function getList (list_id) {

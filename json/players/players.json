@@ -1,143 +1,291 @@
-[
-    {
+[{
         "name": "rolandogarcia",
         "print_name": "Rolando Garcia",
-        "division": { "s1": "ultima", "s2": "ultima" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "ultima"
+            },
+            "2": {
+                "division": "ultima"
+            }
+        }
+    }, {
         "name": "matthewkreiner",
         "print_name": "Matthew Kreiner",
-        "division": { "s1": "ultima", "s2": "ultima" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "ultima"
+            },
+            "2": {
+                "division": "ultima"
+            }
+        }
+    }, {
         "name": "michaelkaufman",
         "print_name": "Mike Kaufman",
-        "division": { "s1": "ultima" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "ultima"
+            }
+        }
+    }, {
         "name": "kentcamargo",
         "print_name": "Kent Camargo",
-        "division": { "s1": "argent", "s2": "argent" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "argent"
+            },
+            "2": {
+                "division": "argent"
+            }
+        }
+    }, {
         "name": "marekmarcinkiewicz",
         "print_name": "Marek Marcinkiewicz",
-        "division": { "s1": "ultima", "s2": "ultima" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "ultima"
+            },
+            "2": {
+                "division": "ultima"
+            }
+        }
+    }, {
         "name": "joshuastein",
         "print_name": "Joshua Stein",
-        "division": { "s1": "argent", "s2": "argent" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "argent"
+            },
+            "2": {
+                "division": "argent"
+            }
+        }
+    }, {
         "name": "joshmankoff",
         "print_name": "Josh Mankoff",
-        "division": { "s1": "argent", "s2": "ultima" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "argent"
+            },
+            "2": {
+                "division": "ultima"
+            }
+        }
+    }, {
         "name": "damianjhagroo",
         "print_name": "Damian Jhagroo",
-        "division": { "s1": "ultima" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "ultima"
+            }
+        }
+    }, {
         "name": "calneuvost",
         "print_name": "Cal Neuvost",
-        "division": { "s1": "ultima" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "ultima"
+            }
+        }
+    }, {
         "name": "brunoroncada",
         "print_name": "Bruno Roncada",
-        "division": { "s1": "argent", "s2": "ultima" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "argent"
+            },
+            "2": {
+                "division": "ultima"
+            }
+        }
+    }, {
         "name": "benfullon",
         "print_name": "Ben Fullon",
-        "division": { "s1": "ultima", "s2": "ultima" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "ultima"
+            },
+            "2": {
+                "division": "ultima"
+            }
+        }
+    }, {
         "name": "bencolumbus",
         "print_name": "Ben Columbus",
-        "division": { "s1": "argent", "s2": "argent" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "argent"
+            },
+            "2": {
+                "division": "argent"
+            }
+        }
+    }, {
         "name": "stephenwooten",
         "print_name": "Stephen Wooten",
-        "division": { "s1": "argent", "s2": "ultima" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "argent"
+            },
+            "2": {
+                "division": "ultima"
+            }
+        }
+    }, {
         "name": "seanduffy",
         "print_name": "Sean Duffy",
-        "division": { "s1": "ultima", "s2": "ultima" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "ultima"
+            },
+            "2": {
+                "division": "ultima"
+            }
+        }
+    }, {
         "name": "joaquinquintana",
         "print_name": "Joaquin Quintana",
-        "division": { "s1": "argent", "s2": "ultima" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "argent"
+            },
+            "2": {
+                "division": "ultima"
+            }
+        }
+    }, {
         "name": "johndimaggio",
         "print_name": "John DiMaggio",
-        "division": { "s1": "ultima", "s2": "ultima" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "ultima"
+            },
+            "2": {
+                "division": "ultima"
+            }
+        }
+    }, {
         "name": "jamalsullivan",
         "print_name": "Jamal Sullivan",
-        "division": { "s1": "argent" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "argent"
+            }
+        }
+    }, {
         "name": "chrisvendetti",
         "print_name": "Chris Vendetti",
-        "division": { "s1": "argent", "s2": "argent" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "argent"
+            },
+            "2": {
+                "division": "argent"
+            }
+        }
+    }, {
         "name": "chadherrada",
         "print_name": "Chad Herrada",
-        "division": { "s1": "argent", "s2": "ultima" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "argent"
+            },
+            "2": {
+                "division": "ultima"
+            }
+        }
+    }, {
         "name": "davecaruana",
         "print_name": "Dave Caruana",
-        "division": { "s1": "ultima", "s2": "ultima" }
-    },
-    {
+        "seasons": {
+            "1": {
+                "division": "ultima"
+            },
+            "2": {
+                "division": "ultima"
+            }
+        }
+    }, {
         "name": "brendanculliton",
         "print_name": "Brendan Culliton",
-        "division": { "s2": "argent"}
-    },
-    {
+        "seasons": {
+            "2": {
+                "division": "argent"
+
+
+            }
+        }
+    }, {
         "name": "aaronkrummen",
         "print_name": "Aaron Krummen",
-        "division": { "s2": "argent"}
-    },
-    {
+        "seasons": {
+            "2": {
+                "division": "argent"
+
+
+            }
+        }
+    }, {
         "name": "edwilton",
         "print_name": "Ed Wilton",
-        "division": { "s2": "argent"}
-    },
-    {
+        "seasons": {
+            "2": {
+                "division": "argent"
+
+
+            }
+        }
+    }, {
         "name": "landonknoblock",
         "print_name": "Landon Knoblock",
-        "division": { "s2": "argent"}
-    },
-    {
+        "seasons": {
+            "2": {
+                "division": "argent"
+
+
+            }
+        }
+    }, {
         "name": "andrewlangston",
         "print_name": "Andrew Langston",
-        "division": { "s2": "argent"}
-    },
-    {
+        "seasons": {
+            "2": {
+                "division": "argent"
+
+
+            }
+        }
+    }, {
         "name": "gregzeitlin",
         "print_name": "Greg Zeitlin",
-        "division": { "s2": "argent"}
-    },
-    {
+        "seasons": {
+            "2": {
+                "division": "argent"
+
+
+            }
+        }
+    }, {
         "name": "mikedamboise",
         "print_name": "Mike dAmboise",
-        "division": { "s2": "argent"}
-    },
-    {
+        "seasons": {
+            "2": {
+                "division": "argent"
+
+
+            }
+        }
+    }, {
         "name": "danielfellows",
         "print_name": "Daniel Fellows",
-        "division": { "s2": "argent"}
+        "seasons": {
+            "2": {
+                "division": "argent"
+
+
+            }
+        }
     }
 
 ]

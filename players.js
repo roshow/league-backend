@@ -4,6 +4,26 @@ import leagueDb from './db';
 import { Player } from './dbModels';
 import constants from './constants';
 
+function getPlayer(playername) {
+	return leagueDb
+		.getOne(constants.PLAYER_STR, { name: playername })
+		.then( player => {
+			const seasons = Object.keys(player.seasons).sort();
+			let promises = [];
+			for (let i = seasons.length; i--;) {
+				let season = seasons[i];
+				promises.push( leagueDb.find( constants.MATCH_STR, {
+					"players.name": playername,
+					"season": season,
+				}).then( matches => {
+					player.seasons[season].matches = matches;
+					return player;
+				}));
+			}
+			return Promise.all(promises).then( () =>  player);
+		}, console.log);
+}
+
 function getPlayerMatches(playername) {
 	return leagueDb
 		.find(constants.MATCH_STR, {
@@ -43,4 +63,9 @@ function uploadPlayers (players) {
  	return Promise.all(promises);
 }
 
-export default  { getLists, getPlayerMatches, uploadPlayers };
+export default  { 
+	getPlayer,
+	getLists,
+	getPlayerMatches,
+	uploadPlayers
+};
