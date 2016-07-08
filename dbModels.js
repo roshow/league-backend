@@ -92,7 +92,6 @@ let list = Schema({
 let player = Schema({
 	name: String,
 	print_name: String,
-	division: Schema.Types.Mixed,
 	seasons: Schema.Types.Mixed,
 	// lists: {
 	// 	type: Schema.Types.Mixed,

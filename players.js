@@ -15,6 +15,10 @@ function getPlayer(playername) {
 				promises.push( leagueDb.find( constants.MATCH_STR, {
 					"players.name": playername,
 					"season": season,
+				}, {
+					sort: {
+						week: 1
+					}
 				}).then( matches => {
 					player.seasons[season].matches = matches;
 					return player;
