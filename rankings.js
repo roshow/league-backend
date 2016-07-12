@@ -42,7 +42,7 @@ function getDivisionRankings (division, season) {
 		let scoredPlayers = {};
 		for (let match of matches) {			
 			// if (match.played) {
-				console.log('match played');
+				// console.log('match played');
 				for (let player of match.players) {
 					let scoredPlayer;
 					if (!scoredPlayers[player.name]) {
@@ -61,11 +61,6 @@ function getDivisionRankings (division, season) {
 			// }
 		}
 		let scoredPlayersArr = Object.keys(scoredPlayers).map((k) => scoredPlayers[k]).sort(_compareRankings);
-		// let printArr = scoredPlayersArr;
-		// printArr = scoredPlayersArr.map(p => ({ name: p.name, mov: p.mov }));
-		// printArr = JSON.stringify(scoredPlayersArr);
-		// console.log(printArr);
-		// console.log('scoredPlayersArr: ', scoredPlayersArr);
 		return scoredPlayersArr;
 	}, console.log);
 }

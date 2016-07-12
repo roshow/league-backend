@@ -80,11 +80,12 @@ function runScript (script=`nothingToDo`, args=[]) {
 }
 
 if (process.argv[2] === 'runscript') {
-	runScript(process.argv[3], process.argv.slice(4)).then(function (res) {
-		if (res) {
-			console.log(`printing script results: \n`, res);	
-		}
-	});
+	runScript(process.argv[3], process.argv.slice(4));
+		// .then(function (res) {
+		// 	if (res) {
+		// 		console.log(`printing script results: \n`, res);	
+		// 	}
+		// });
 }
 
 export default { runScript };
