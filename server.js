@@ -1,9 +1,10 @@
 
 import express from 'express';
 import bodyParser from 'body-parser';
-import leagueScripts from './leagueScripts';
 import cors from 'cors';
 import NodeCache from 'node-cache';
+import leagueScripts from './leagueScripts';
+import leagueDb from './db';
 
 let serverCache = new NodeCache();
 
@@ -17,7 +18,7 @@ let port = process.env.PORT || 9000;
 var router = express.Router();
 
 function _runLeagueScript (req, res, script, ...args) {
-	return leagueScripts.runScript(script, args).then(function (data) {
+	return leagueScripts.justRunScript(script, args).then(function (data) {
 		res.json(data);
 		return data;
 	});
@@ -87,5 +88,7 @@ router.get('/matches/division/:division/season/:season/week/:week', function (re
 
 
 app.use('/api', router);
-app.listen(port);
+leagueDb.connect().then(function () {
+	app.listen(port);
+});
 console.log('Server listening on port ' + port);

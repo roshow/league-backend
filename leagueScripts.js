@@ -79,6 +79,12 @@ function runScript (script=`nothingToDo`, args=[]) {
 	}, console.log);
 }
 
+function justRunScript  (script=`nothingToDo`, args=[]) {
+	return fUNctions[script](...args).then(function (response) {
+		return response;
+	});
+}
+
 if (process.argv[2] === 'runscript') {
 	runScript(process.argv[3], process.argv.slice(4));
 		// .then(function (res) {
@@ -88,4 +94,7 @@ if (process.argv[2] === 'runscript') {
 		// });
 }
 
-export default { runScript };
+export default { 
+	runScript,
+	justRunScript,
+};
