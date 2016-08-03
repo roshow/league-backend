@@ -54,6 +54,10 @@ router.get('/players', function (req, res) {
 	_runLeagueScript(req, res, 'getPlayer');
 });
 
+router.post('/updatematches', function (req, res) {
+	_runLeagueScript(req, res, 'updateMatchesFromSS');
+});
+
 // GET Player by name (id)
 router.get('/players/:playerName', function (req, res) {
 	_runLeagueScript(req, res, 'getPlayer', req.params.playerName);
