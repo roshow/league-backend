@@ -32,12 +32,20 @@ function calculateLeaguePoints (players, wasPlayed) {
 	let absdiff = Math.abs(diff);
 
 	let points = (absdiff >= 12) ? [4, 1] : (absdiff > 0) ? [3, 2] : [2, 2];
+  const draw = ( absdiff === 0 );
+  const mod = (absdiff < 12 && absdiff > 0);
 	let scores = [{
 		lp: points[0],
-		mov: (100 + absdiff)
+		mov: (100 + absdiff),
+   draw,
+   mod,
+   win: !draw
 	}, {
 		lp: points[1],
-		mov: (100 - absdiff)
+		mov: (100 - absdiff),
+   draw,
+   mod,
+   loss: !draw
 	}];
 
 	return (diff < 0) ? scores.reverse() : scores;

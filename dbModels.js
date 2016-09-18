@@ -19,7 +19,27 @@ let scoredPlayerSchema = Schema({
 	games_played: {
 		type: Number,
 		default: 0
-	}
+	},
+  wins: {
+    type: Number,
+    default: 0
+  },
+  losses: {
+    type: Number,
+    default: 0
+  },
+  modWins: {
+    type: Number,
+    default: 0
+  },
+  modLosses: {
+    type: Number,
+    default: 0
+  },
+  draw: {
+    type: Number,
+    default: 0
+  }
 });
 
 let match_player = Schema({
@@ -41,6 +61,11 @@ let match_player = Schema({
 		type: String,
 		default: ''
 	},
+  win: Boolean,
+  loss: Boolean,
+  modWin: Boolean,
+  modLoss: Boolean,
+  draw: Boolean,
 });
 
 let match = Schema({

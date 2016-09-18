@@ -12,9 +12,13 @@ function validateAndScoreMatch (match) {
 	let players = match.players;
 	let points = leagueLogic.calculateLeaguePoints(players, match.gamePlayed);
 	for (let i = 2; i--;) {
-		players[i].lp = points[i].lp;
-		players[i].mov = points[i].mov;
-		players[i].list_link = players[i].list_link === 'null' ? '' : players[i].list_link;  // "null" is used in spreadsheet for matches where some lists have been submitted but others have not; it should be an empty string, tho
+    players[i] = Object.assign({}, players[i], points[i], {
+      list_link: players[i].list_link === 'null' ? '' : players[i].list_link  // "null" is used in spreadsheet for matches where some lists have been submitted but others have not; it should be an empty string, tho
+    });
+		// players[i].lp = points[i].lp;
+		// players[i].mov = points[i].mov;
+  //   players[i].win = points[i].win;
+		// players[i].list_link = players[i].list_link === 'null' ? '' : players[i].list_link;  // "null" is used in spreadsheet for matches where some lists have been submitted but others have not; it should be an empty string, tho
 	}
 	if (players[0].mov > players[1].mov) {
 		match.winner = players[0].name;
@@ -36,9 +40,9 @@ function getMatchesByPlayer (name) {
 }
 
 function getMatchesByDivision (division, season, week) {
-	let query = {
-		division: division,
-		season: season,
+	const query = {
+		division,
+		season,
 	};
 	if (week) {
 		query.week = week;
@@ -52,7 +56,8 @@ function getMatchesByDivision (division, season, week) {
     division,
     week,
     season,
-    matches
+    matches,
+    matchListId: `${division}${season}${week || ''}`
   }));
 }
 
