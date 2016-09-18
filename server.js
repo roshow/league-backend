@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-let port = process.env.PORT || 9000;
+let port = process.env.PORT || 3001;
 var router = express.Router();
 
 function _runLeagueScript (req, res, script, ...args) {
@@ -29,7 +29,7 @@ router.get('/', function(req, res) {
 });
 
 // RANKINGS routes
-router.get('/rankings/season/:season/division/:division', function (req, res) {
+router.get('/rankings/:division/:season', function (req, res) {
 	let division = req.params.division;
 	let season = req.params.season;
 	let cachename = `${division}.rankings`;
@@ -81,12 +81,12 @@ router.get('/lists/:listId', function (req, res) {
 
 /* MATCHES routes */
 // GET Matches by Division, Season
-router.get('/matches/division/:division/season/:season', function (req, res) {
+router.get('/matches/:division/:season', function (req, res) {
 	_runLeagueScript(req, res, 'getMatchesByDivision', req.params.division, req.params.season, req.params.week);
 });
 // GET Matches by Division, Season, Week
-router.get('/matches/division/:division/season/:season/week/:week', function (req, res) {
-	_runLeagueScript(req, res, 'getMatchesByDivision', req.params.division, req.params.week, req.params.season);
+router.get('/matches/:division/:season/:week', function (req, res) {
+	_runLeagueScript(req, res, 'getMatchesByDivision', req.params.division, req.params.season, req.params.week);
 });
 
 

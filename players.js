@@ -1,4 +1,3 @@
-
 import leagueLogic from './leagueLogic';
 import leagueDb from './db';
 import { Player } from './dbModels';

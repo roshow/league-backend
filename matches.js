@@ -35,7 +35,7 @@ function getMatchesByPlayer (name) {
 	});
 }
 
-function getMatchesByDivision (division,  week, season=2) {
+function getMatchesByDivision (division, season, week) {
 	let query = {
 		division: division,
 		season: season,
@@ -48,7 +48,12 @@ function getMatchesByDivision (division,  week, season=2) {
 			week: 1,
 			game: 1,
 		}
-	});
+	}).then( matches => ({
+    division,
+    week,
+    season,
+    matches
+  }));
 }
 
 function uploadMatch (match) {

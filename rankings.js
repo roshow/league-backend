@@ -61,7 +61,11 @@ function getDivisionRankings (division, season) {
 			// }
 		}
 		let scoredPlayersArr = Object.keys(scoredPlayers).map((k) => scoredPlayers[k]).sort(_compareRankings);
-		return scoredPlayersArr;
+		return {
+      division,
+      season,
+      rankings: scoredPlayersArr
+    };
 	}, console.log);
 }
 export default { getDivisionRankings };

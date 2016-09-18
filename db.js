@@ -16,7 +16,7 @@ function find (modelName, query, options={}) {
 		mongoose.model(modelName).find(query, null, options, function (err, docs) {
 			if (err) { reject(err); }
 			else { 
-				resolve(docs); 
+				resolve(docs.map( doc => new dbModels[modelName](doc) )); 
 			}
 		});
 	});
