@@ -18,13 +18,18 @@ function calculateLeaguePoints (players, wasPlayed) {
 	}
 
 	if (wasPlayed === 2) {
+    const playerOneWins = (destroyed1 > destroyed2);
 		return [{
-			lp: (destroyed1 > destroyed2) ? 4 : 1,
-			mov: destroyed1
+			lp: playerOneWins ? 4 : 1,
+			mov: destroyed1,
+     win: playerOneWins,
+     loss: !playerOneWins
 		}, 
 		{
-			lp: (destroyed2 > destroyed1) ? 4 : 1,
-			mov: destroyed2
+			lp: !playerOneWins ? 4 : 1,
+			mov: destroyed2,
+     win: !playerOneWins,
+     loss: playerOneWins
 		}];
 	}
 
@@ -38,13 +43,13 @@ function calculateLeaguePoints (players, wasPlayed) {
 		lp: points[0],
 		mov: (100 + absdiff),
    draw,
-   mod,
+   modWin: mod,
    win: !draw
 	}, {
 		lp: points[1],
 		mov: (100 - absdiff),
    draw,
-   mod,
+   modLoss: mod,
    loss: !draw
 	}];
 
