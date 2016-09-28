@@ -9,8 +9,8 @@ let _writeToFile = true;
 
 // !!!!!!! only loading season 2 for now !!!!!!!!
 let urls = {
-	// ultima_s1: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=0`,
-	// argent_s1: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=1526608063`,
+	ultima_s1: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=0`,
+	argent_s1: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=1526608063`,
 	ultima_s2: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=1705180204`,
 	argent_s2: `https://docs.google.com/spreadsheets/d/1iM6YRodJyhLqII7BYELNogJYdyJFFN8JGpSg5Y2bdMA/pub?output=csv&gid=783431773`,
 };
